@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naruto Blog - Konoha</title>
+    <link rel="stylesheet" href="style.css">
+
+    <audio id="audio-boo" src="boo-tu-as-peur-nai-pas-peur.mp3"></audio>
+   <audio id="naruto-epic-music" src="Naruto-MainTheme.mp3"></audio>
+
+    <script>
+    function lancerMusique() {
+        document.getElementById("naruto-epic-music").play();
+    }
+
+    function activationSharingan() {
+        document.body.classList.toggle("mode-genjutsu");
+        if (document.body.classList.contains("mode-genjutsu")) {
+            alert("ITACHI : Tu es déjà dans mon Genjutsu... 🌑");
+        } else {
+            alert("KAI !");
+        }
+    }
+    </script>
+</head>
+<body>
+
+    <div class="header-buttons">
+        <button onclick="document.getElementById('audio-boo').play()">Lancer le Genjutsu</button>
+        <a href="bibliotheque.html" class="btn-bibliotheque">À la bibliothèque !</a>
+        <button class="btn-naruto" onclick="lancerMusique()">LANCER LA MUSIQUE</button>
+    </div>
+
+    <h1 class="main-title">KONOHA BLOG</h1>
+    <h1 class="japanese-title">うずまきナルト</h1>
+    
+    <div class="sharingan-container">
+        <button id="bouton-sharingan" onclick="activationSharingan()">👁️ ACTIVER LE MANGEKYÔ</button>
+    </div>
+
+    <h2>De quoi Naruto parle ?</h2>
+    <p>Naruto parle d'amitié, de courage et de persévérance !</p>
+
+    <div class="fiche-ninja">
+        <h2>📜 Fiche de Ninja (Partie 1) : Naruto Uzumaki</h2>
+        <ul>
+            <li><strong>Nom :</strong> <strong>うずまきナルト</strong> (Naruto Uzumaki) </li>
+            <li><strong>Équipe :</strong> Équipe 7</li>
+            <li><strong>Maître :</strong> Kakashi Hatake</li>
+            <li><strong>Rang :</strong> Genin (Ninja Aspirant)</li>
+            <li><strong>Plat préféré :</strong> Ramen à base de Porc avec du Naruto</li>
+        </ul>
+    </div>
+
+</body>
+</html>

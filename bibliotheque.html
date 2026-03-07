@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La bibliothèque de Konoha</title>
+    <link rel="stylesheet" href="bibliotheque.css">
+    
+    <audio id="musique-zen" src="sadness.mp3"></audio>
+
+
+</head>
+<body>
+
+
+<div class="audio-section">
+    <button class="btn-zen" onclick="toggleMusic()">🎵 AMBIANCE ZEN</button>
+</div>
+</div>
+    <a href="index.html" class="btn-retour">⬅ RETOUR AU VILLAGE</a>
+    
+    <h1>LA BIBLIOTHÈQUE DE KONOHA</h1>
+    
+    <div class="search-box">
+    <input type="text" id="inputParchemin" onkeyup="rechercheParchemin(event)" placeholder="🔎 Chercher un parchemin ou un secret...">
+</div>
+
+    <div id="liste-livres">
+        <div class="livre">
+            <h2>Histoire de Naruto Uzumaki</h2>
+            <p>Le récit du garçon qui voulait devenir Hokage.</p>
+        </div>
+        <div class="livre">
+            <h2>Techniques de Naruto</h2>
+            <p>Maîtrisez le Rasengan et le Multiclonage</p>
+        </div>
+        <div class="livre">
+            <h2>Significations et Références des noms</h2>
+            <p>Apprenez les significations de Naruto, Uzumaki, Uchiha, etc...</p>
+        </div>
+    </div>
+
+    
+
+    <script>
+
+function toggleMusic() {
+    let audioZen = document.getElementById("musique-zen");
+    
+    // Si la musique est en pause, on la lance, sinon on la met sur pause
+    if (audioZen.paused) {
+        audioZen.play();
+    } else {
+        audioZen.pause();
+    }
+}
+
+function rechercheParchemin(event) {
+    let motTape = document.getElementById('inputParchemin').value.toLowerCase();
+
+    // On vérifie si l'utilisateur a appuyé sur la touche "Entrée" (Enter)
+    if (event.key === "Enter") {
+        
+        // 1. Les techniques
+        if (motTape.includes("technique") || motTape.includes("jutsu")) {
+            window.location.href = "techniques-de-naruto.html";
+        } 
+        
+        // 2. L'histoire (J'ai corrigé le nom de ton fichier ici !)
+        else if (motTape.includes("hist") || motTape.includes("naruto")) {
+            window.location.href = "histoire-de-naruto.html";
+        }
+
+        else if (motTape.includes("sign") || motTape.includes ("réf")) {
+            window.location.href = "signification-et-references-des-noms.html"
+        }
+
+        // 3. Le secret Akatsuki
+        else if (motTape === "akatsuki") {
+            window.location.href = "akatsuki.html";
+        }
+
+        // 4. Si on tape n'importe quoi d'autre
+        else {
+            alert("Ce parchemin n'existe pas encore dans nos archives !");
+        }
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Reggae+One&display=swap');
+
+
+body{background-color: black;
+color:#ff9900 ;
+font-family: Bangers,cursive;}
+h1{
+    text-align: center;
+}
+
+
+.btn-retour-biblio {
+    display: inline-block;
+    background-color: #1a1a1a;
+    color: #ff9900;
+    border: 2px solid #ff9900;
+    padding: 10px 20px;
+    margin: 20px;
+    text-decoration: none;
+    font-family: 'Bangers', cursive;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-retour-biblio:hover {
+    background-color: #ff9900;
+    color: black;
+    transform: scale(1.1);
+}

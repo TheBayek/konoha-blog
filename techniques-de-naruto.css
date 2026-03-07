@@ -1,0 +1,65 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Reggae+One&display=swap');
+
+
+
+body{
+
+background-color: black;
+color: #ff9900;
+font-family: Bangers,cursive;
+
+}
+
+h1{text-align: center;}
+h2{text-align: center;}
+h3{text-align: center;}
+
+div{
+    color: rgb(39, 116, 204) ;
+    font-size: large;
+    text-align: center;
+}
+.Rasengan{
+text-align: center;
+    color:rgb(39, 116, 204)  ;
+}
+
+
+
+
+
+
+
+.btn-retour {
+    background-color: #ff4500; /* Orange vif */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: 0.3s; /* Pour que le changement soit fluide */
+}
+
+/* Quand on passe la souris sur le bouton */
+.btn-retour:hover {
+    background-color: #cc3700; /* Un orange plus foncé */
+    transform: scale(1.1); /* Il grandit un tout petit peu */
+}
+
+
+
+
+.Rasengan {
+    color: #00d2ff; /* Un bleu clair électrique */
+    text-shadow: 0 0 10px #00d2ff, 0 0 20px #0088ff, 0 0 30px #0044ff;
+    font-weight: bold;
+}
+
+div{
+    color: #00d2ff; /* Un bleu clair électrique */
+    text-shadow: 0 0 10px #00d2ff, 0 0 20px #0088ff, 0 0 30px #0044ff;
+    font-weight: bold;
+}
