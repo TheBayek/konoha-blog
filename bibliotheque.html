@@ -52,11 +52,9 @@
     
 
     <script>
-
 function toggleMusic() {
     let audioZen = document.getElementById("musique-zen");
     
-    // Si la musique est en pause, on la lance, sinon on la met sur pause
     if (audioZen.paused) {
         audioZen.play();
     } else {
@@ -67,7 +65,7 @@ function toggleMusic() {
 function rechercheParchemin(event) {
     let motTape = document.getElementById('inputParchemin').value.toLowerCase();
 
-    // On vérifie si l'utilisateur a appuyé sur la touche "Entrée" (Enter)
+    // On vérifie si l'utilisateur a appuyé sur la touche "Entrée"
     if (event.key === "Enter") {
         
         // 1. Les techniques
@@ -75,23 +73,27 @@ function rechercheParchemin(event) {
             window.location.href = "techniques-de-naruto.html";
         } 
         
-        // 2. L'histoire (J'ai corrigé le nom de ton fichier ici !)
+        // 2. L'histoire
         else if (motTape.includes("hist") || motTape.includes("naruto")) {
             window.location.href = "histoire-de-naruto.html";
         }
 
-        else if (motTape.includes("sign") || motTape.includes ("réf")) {
-            window.location.href = "signification-et-references-des-noms.html"
+        // 3. Significations
+        else if (motTape.includes("sign") || motTape.includes("réf")) {
+            window.location.href = "signification-et-references-des-noms.html";
         }
-        else if (motTape.includes (sakura) || motTape.includes (saku)) {
-            window.location.href = "sakura.html"
-        // 3. Le secret Akatsuki
+
+        // 4. Sakura (Correction ici : ajout des guillemets et de la fermeture })
+        else if (motTape.includes("sakura") || motTape.includes("saku")) {
+            window.location.href = "sakura.html";
+        }
+
+        // 5. Le secret Akatsuki
         else if (motTape === "akatsuki") {
             window.location.href = "akatsuki.html";
         }
-            
 
-        // 4. Si on tape n'importe quoi d'autre
+        // 6. Si on ne trouve rien
         else {
             alert("Ce parchemin n'existe pas encore dans nos archives !");
         }
