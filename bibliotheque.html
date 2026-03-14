@@ -83,11 +83,13 @@ function rechercheParchemin(event) {
         else if (motTape.includes("sign") || motTape.includes ("réf")) {
             window.location.href = "signification-et-references-des-noms.html"
         }
-
+        else if (motTape.includes (sakura) || motTape.includes (saku)) {
+            window.location.href = "sakura.html"
         // 3. Le secret Akatsuki
         else if (motTape === "akatsuki") {
             window.location.href = "akatsuki.html";
         }
+            
 
         // 4. Si on tape n'importe quoi d'autre
         else {
