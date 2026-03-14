@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Reggae+One&display=swap');
+
+
+body{color: rgba(253, 188, 199, 0.849);
+font-size: large;
+background-color: black;}
+h1{text-align: center;}
+h2{text-align: center;}
+h3{text-align: center;}
+div{ text-align: center;}
+.personnalite{text-align: center;
+font-family: Bangers;
+}
+
+h1{font-family: Bangers;}
+h2{font-family: Bangers;}
+h3{font-family: Bangers;}
+div{font-family: Bangers;}
+.personnalite{font-family: Bangers;}
+
+
+.japanease-sakura{font-family: Reggae One, cursive;
+text-align: center;
+}
+
+
+
+
+
+.lien-ninja {
+    /* On enlève le soulignement du lien */
+    text-decoration: none;
+    
+    /* On lui donne l'apparence d'un bouton */
+    display: inline-block;
+    padding: 15px 30px;
+    margin-top: 20px;
+    
+    /* Style transparent demandé */
+    background-color: transparent;
+    color: rgb(255, 71, 215);
+    border: 2px solid rgb(255, 71, 215);
+    
+    /* Police de ton projet */
+    font-family: 'Bangers', cursive;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    
+    /* Transition fluide pour la brillance */
+    transition: all 0.3s ease-in-out;
+}
+
+/* Effet quand on met "la main" (le curseur) dessus */
+.lien-ninja:hover {
+    cursor: pointer; /* Force le curseur "main" */
+    
+    /* Le bouton devient blanc et le texte noir */
+    background-color: white;
+    color: black;
+    
+    /* Brillance blanche intense (effet Chakra) */
+    box-shadow: 0 0 20px #ffffff, 0 0 40px #ffffff;
+    
+    /* Petit effet de déplacement vers le haut */
+    transform: translateY(-3px);
+}
