@@ -94,10 +94,20 @@ function rechercheParchemin(event) {
             window.location.href = "akatsuki.html";
         }
 
-        // 6. Si on ne trouve rien
+        // 4. Si on tape n'importe quoi d'autre
         else {
-            alert("Ce parchemin n'existe pas encore dans nos archives !");
+            // On récupère notre boîte de message
+            let message = document.getElementById("message-erreur");
+            
+            // On l'affiche sur la page
+            message.style.display = "block"; 
+            
+            // On le fait disparaître au bout de 3 secondes (3000 millisecondes)
+            setTimeout(function() {
+                message.style.display = "none";
+            }, 3000);
         }
+
     }
 }
 </script>
