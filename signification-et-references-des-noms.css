@@ -28,3 +28,22 @@ h1{
     color: black;
     transform: scale(1.1);
 }
+
+h1 {
+    text-align: center;
+}
+h2{
+    text-align: center;
+}
+.naruto-def{
+    text-align: center;
+}
+.sasuke-def{
+    text-align: center;
+}
+.sakura-def{
+    text-align: center;
+}
+.uzumaki-def{
+    text-align: center;
+}
