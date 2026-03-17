@@ -66,3 +66,44 @@ text-align: center;
     /* Petit effet de déplacement vers le haut */
     transform: translateY(-3px);
 }
+
+
+
+body {
+    cursor: none;
+    background-color: #1a1a1a; /* Fond sombre pour faire ressortir l'œil */
+}
+
+.rinnegan-cursor {
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    border-radius: 50%;
+    border: 2px solid #3d345c; /* Contour léger */
+    
+    /* Les cercles concentriques violets */
+    background: repeating-radial-gradient(
+        circle,
+        #a685cc,       /* Couleur claire */
+        #a685cc 2px,   /* Épaisseur du trait */
+        #6e568a 3px,   /* Couleur sombre */
+        #6e568a 8px    /* Espacement entre les cercles */
+    );
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 15px rgba(166, 133, 204, 0.5); /* Effet lumineux */
+}
+
+/* La pupille centrale */
+.pupil {
+    width: 8px;
+    height: 8px;
+    background-color: #1a1a1a;
+    border-radius: 50%;
+}
+
