@@ -74,3 +74,16 @@ h1 { font-family: 'Reggae One', cursive; font-size: 2.5rem; }
     box-shadow: 0 0 20px #ff9900;
     transform: scale(1.1);
 }
+
+
+#message-erreur {
+    display: none; /* On le cache par défaut */
+    color: #ff3333; /* Un rouge ninja pour l'erreur */
+    background-color: #1a1a1a;
+    border: 1px solid #ff3333;
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    box-shadow: 0 0 10px #ff3333;
+}
