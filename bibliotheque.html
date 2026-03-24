@@ -1,20 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18015844919"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-18015844919');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La bibliothèque de Konoha</title>
     <link rel="stylesheet" href="bibliotheque.css">
-    <link rel="icon" type="image/jpeg" href="telechargement.jpg">
+    
     <audio id="musique-zen" src="sadness.mp3"></audio>
 
 
@@ -30,9 +21,12 @@
     
     <h1>LA BIBLIOTHÈQUE DE KONOHA</h1>
     
-    <div class="search-box">
-        <div id="message-erreur">Désolé, ce parchemin n'existe pas encore dans nos archives !</div>
-    <input type="text" id="inputParchemin" onkeyup="rechercheParchemin(event)" placeholder="🔎 Chercher un parchemin ou un secret...">
+    <div class="search-box" style="position: relative; width: 100%; max-width: 600px; margin: 20px auto;">
+    
+    
+    <input type="text" id="inputParchemin" placeholder="Rechercher..." autocomplete="off">
+    
+    <ul id="liste-suggestions" class="suggestions"></ul>
 </div>
 
     <div id="liste-livres">
@@ -53,9 +47,9 @@
     
 
     <script>
+// La musique ZEN
 function toggleMusic() {
     let audioZen = document.getElementById("musique-zen");
-    
     if (audioZen.paused) {
         audioZen.play();
     } else {
@@ -63,53 +57,79 @@ function toggleMusic() {
     }
 }
 
-function rechercheParchemin(event) {
-    let motTape = document.getElementById('inputParchemin').value.toLowerCase();
+// NOTRE BASE DE DONNÉES DE PARCHEMINS
+const parchemins = [
+    { titre: "Histoire de Naruto Uzumaki", motsCles: ["histoire", "naruto", "uzumaki"], url: "histoire-de-naruto.html" },
+    { titre: "Techniques de Naruto", motsCles: ["technique", "jutsu", "rasengan", "multiclonage"], url: "techniques-de-naruto.html" },
+    { titre: "Significations et Références", motsCles: ["signification", "réf", "nom"], url: "signification-et-references-des-noms.html" },
+    { titre: "Sakura Haruno", motsCles: ["sakura", "saku", "haruno", "uchiha"], url: "sakura.html" },
+    { titre: "L'Akatsuki", motsCles: ["akatsuki", "secret"], url: "akatsuki.html" }
+];
 
-    // On vérifie si l'utilisateur a appuyé sur la touche "Entrée"
-    if (event.key === "Enter") {
-        
-        // 1. Les techniques
-        if (motTape.includes("technique") || motTape.includes("jutsu")) {
-            window.location.href = "techniques-de-naruto.html";
-        } 
-        
-        // 2. L'histoire
-        else if (motTape.includes("hist") || motTape.includes("naruto")) {
-            window.location.href = "histoire-de-naruto.html";
-        }
+const barreRecherche = document.getElementById('inputParchemin');
+const listeSuggestions = document.getElementById('liste-suggestions');
 
-        // 3. Significations
-        else if (motTape.includes("sign") || motTape.includes("réf")) {
-            window.location.href = "signification-et-references-des-noms.html";
-        }
+// ACTION 1 : Quand on tape dans la barre (Suggestions)
+barreRecherche.addEventListener('input', function() {
+    const texteSaisi = barreRecherche.value.toLowerCase().trim();
+    listeSuggestions.innerHTML = ''; // On vide les anciennes suggestions
 
-        // 4. Sakura (Correction ici : ajout des guillemets et de la fermeture })
-        else if (motTape.includes("sakura") || motTape.includes("saku")) {
-            window.location.href = "sakura.html";
-        }
+    if (texteSaisi.length > 0) {
+        // On cherche les correspondances
+        const resultats = parchemins.filter(parchemin => 
+            parchemin.titre.toLowerCase().includes(texteSaisi) || 
+            parchemin.motsCles.some(mot => mot.includes(texteSaisi))
+        );
 
-        // 5. Le secret Akatsuki
-        else if (motTape === "akatsuki") {
-            window.location.href = "akatsuki.html";
-        }
-
-        // 4. Si on tape n'importe quoi d'autre
-        else {
-            // On récupère notre boîte de message
-            let message = document.getElementById("message-erreur");
+        if (resultats.length > 0) {
+            listeSuggestions.style.display = 'block';
             
-            // On l'affiche sur la page
-            message.style.display = "block"; 
-            
-            // On le fait disparaître au bout de 3 secondes (3000 millisecondes)
-            setTimeout(function() {
-                message.style.display = "none";
-            }, 3000);
+            resultats.forEach(resultat => {
+                const li = document.createElement('li');
+                li.textContent = resultat.titre;
+                
+                // Au clic sur la suggestion -> redirection
+                li.addEventListener('click', function() {
+                    window.location.href = resultat.url;
+                });
+                
+                listeSuggestions.appendChild(li);
+            });
+        } else {
+            listeSuggestions.style.display = 'none';
         }
-
+    } else {
+        listeSuggestions.style.display = 'none';
     }
-}
+});
+
+// ACTION 2 : Quand on appuie sur la touche Entrée
+barreRecherche.addEventListener('keyup', function(event) {
+    if (event.key === "Enter") {
+        const texteSaisi = barreRecherche.value.toLowerCase().trim();
+        
+        // On cherche le meilleur résultat
+        const resultatTrouve = parchemins.find(parchemin => 
+            parchemin.titre.toLowerCase().includes(texteSaisi) || 
+            parchemin.motsCles.some(mot => mot.includes(texteSaisi))
+        );
+
+        if (resultatTrouve) {
+            // Si trouvé, on y va
+            window.location.href = resultatTrouve.url;
+        } else if (texteSaisi !== "") {
+            // Si non trouvé et que la barre n'est pas vide -> MESSAGE DU NAVIGATEUR
+            alert("Désolé, ce parchemin n'existe pas encore dans nos archives !");
+        }
+    }
+});
+
+// ACTION 3 : Cacher la liste si on clique dans le vide
+document.addEventListener('click', function(event) {
+    if (event.target !== barreRecherche) {
+        listeSuggestions.style.display = 'none';
+    }
+});
 </script>
 
 </body>
