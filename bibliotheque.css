@@ -134,3 +134,63 @@ h1 { font-family: 'Reggae One', cursive; font-size: 2.5rem; }
     background-color: #ff9900;
     color: white;
 }
+
+
+
+/* --- LE CONTENEUR DES LIVRES --- */
+#liste-livres {
+    display: flex;
+    flex-wrap: wrap; /* Permet aux cartes de passer à la ligne sur les petits écrans */
+    justify-content: center; /* Centre les cartes au milieu de la page */
+    gap: 30px; /* Espace entre chaque carte */
+    margin-top: 40px;
+    max-width: 1000px;
+}
+
+/* --- LE STYLE D'UNE CARTE LIVRE --- */
+.livre {
+    background-color: #1a1a1a; /* Fond sombre ninja */
+    border: 2px solid #ff9900; /* Bordure orange */
+    border-radius: 15px; /* Coins arrondis */
+    padding: 20px;
+    width: 250px; /* Largeur fixe pour que toutes les cartes soient pareilles */
+    text-decoration: none; /* Enlève la ligne de soulignement des liens */
+    color: white; /* Le texte de description en blanc */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+/* --- LE TITRE DANS LA CARTE --- */
+.livre h2 {
+    color: #ff9900; /* Titre en orange pour ressortir */
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+/* --- L'ANIMATION AU SURVOL --- */
+.livre:hover {
+    transform: translateY(-10px); /* La carte monte légèrement */
+    box-shadow: 0 10px 25px rgba(255, 153, 0, 0.4); /* Aura orange (chakra) */
+    background-color: #222; /* Le fond s'éclaircit un petit peu */
+}
+
+/* --- STYLE SPÉCIAL POUR LA CARTE SAKURA --- */
+
+/* 1. Le titre en rose */
+.carte-sakura h2 {
+    color: rgb(255, 71, 215); /* Le beau rose que tu avais utilisé pour son bouton */
+}
+
+/* 2. Bonus : On change aussi la bordure de la carte en rose */
+.carte-sakura {
+    border-color: rgb(255, 71, 215);
+}
+
+/* 3. Bonus : L'aura (l'ombre) devient rose quand on passe la souris dessus */
+.carte-sakura:hover {
+    box-shadow: 0 10px 25px rgba(255, 71, 215, 0.4);
+}
