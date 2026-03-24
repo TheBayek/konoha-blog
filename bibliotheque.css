@@ -76,14 +76,61 @@ h1 { font-family: 'Reggae One', cursive; font-size: 2.5rem; }
 }
 
 
-#message-erreur {
-    display: none; /* On le cache par défaut */
-    color: #ff3333; /* Un rouge ninja pour l'erreur */
-    background-color: #1a1a1a;
-    border: 1px solid #ff3333;
-    padding: 10px;
-    margin-top: 15px;
-    border-radius: 8px;
+
+
+
+/* --- LA BARRE DE RECHERCHE --- */
+#inputParchemin {
+    width: 100%;
+    padding: 15px 25px;
+    font-size: 1.8rem;
+    font-family: 'Bangers', cursive;
+    color: white;
+    background-color: #222; /* Fond sombre pour coller à ta page */
+    border: 3px solid #ff9900; /* La bordure orange demandée */
+    border-radius: 30px;
+    outline: none;
+    box-sizing: border-box;
+    transition: box-shadow 0.3s ease;
+    text-align: center;
+}
+
+/* Effet quand on clique dans la barre */
+#inputParchemin:focus {
+    box-shadow: 0 0 20px #ff9900;
+}
+
+/* --- LES SUGGESTIONS --- */
+.suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border-radius: 15px;
+    margin-top: 10px;
+    padding: 0;
+    list-style: none;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    display: none; /* Caché par défaut */
+    z-index: 10;
+    text-align: left; /* Plus lisible d'avoir les suggestions alignées à gauche */
+}
+
+.suggestions li {
+    padding: 12px 20px;
+    color: black;
+    font-family: sans-serif; /* Une police classique pour bien lire les titres */
     font-size: 1.2rem;
-    box-shadow: 0 0 10px #ff3333;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+    transition: background 0.2s;
+}
+
+/* Effet orange au survol d'une suggestion */
+.suggestions li:hover {
+    background-color: #ff9900;
+    color: white;
 }
