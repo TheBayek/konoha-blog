@@ -24,6 +24,76 @@ text-align: center;
 }
 
 
+/* --- Nettoyage des polices --- */
+/* On regroupe tout pour éviter les répétitions */
+h1, h2, h3, .personnalite {
+    font-family: 'Bangers', cursive;
+    text-align: center;
+}
+
+
+/* On cible les sections de texte sous l'image */
+.personnalite, .apparence, .histoire {
+    max-width: 800px;    /* Le texte ne dépassera JAMAIS 800 pixels de large */
+    margin: 40px auto;   /* "auto" centre le bloc horizontalement sur la page */
+    padding: 0 20px;     /* Ajoute une petite marge de sécurité sur les côtés */
+    line-height: 1.6;    /* Espace un peu les lignes pour que ce soit plus aéré */
+}
+
+/* Optionnel : aligner le texte à l'intérieur */
+.personnalite p, .apparence p, .histoire p {
+    text-align: justify; /* Pour des bords bien droits et propres */
+}
+
+
+
+
+/* --- La section principale (Flexbox) --- */
+.principal {
+    display: flex;
+    flex-direction: row-reverse; /* Image à droite, texte à gauche */
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; /* Permet de passer l'un sous l'autre sur petit écran */
+    gap: 40px; 
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1200px; /* Empêche le contenu de trop s'étaler */
+}
+
+/* --- Le texte dans la section principale --- */
+.principal p {
+    max-width: 600px;
+    line-height: 1.6; /* Ajoute de l'espace entre les lignes pour la lisibilité */
+    text-align: justify; /* Le texte est plus propre ainsi */
+    font-size: 1.2rem;
+}
+
+/* --- L'image de Sakura --- */
+/* État normal de l'image */
+.sakura-part1 {
+    width: 30rem;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(255, 71, 215, 0.3);
+    
+    /* C'est ici que la magie opère : on prépare l'animation */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* État quand on passe la souris dessus */
+.sakura-part1:hover {
+    /* L'image monte de 10 pixels */
+    transform: translateY(-10px);
+    
+    /* On augmente un peu l'ombre pour accentuer l'effet de "levitation" */
+    box-shadow: 0 20px 40px rgba(255, 71, 215, 0.5);
+    
+    /* On change le curseur pour montrer que c'est interactif */
+    cursor: pointer;
+}
+
+
 .apparence{text-align: center;}
 
 .histoire{text-align: center;}
@@ -66,6 +136,5 @@ text-align: center;
     /* Petit effet de déplacement vers le haut */
     transform: translateY(-3px);
 }
-
 
 
