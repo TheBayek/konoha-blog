@@ -76,3 +76,68 @@ button:hover, .btn-bibliotheque:hover, .btn-naruto:hover {
 }
 
 .mode-genjutsu { filter: invert(100%) hue-rotate(180deg) !important; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   📱 JUTSU RESPONSIVE (MOBILE FIRST)
+   ========================================= */
+
+@media (max-width: 768px) {
+  
+  /* 1. On rétrécit le logo tournant de Konoha pour qu'il tienne sur l'écran */
+  body::before {
+    width: 300px;
+    height: 300px;
+  }
+
+  /* 2. On empile les boutons d'en haut pour éviter qu'ils se chevauchent */
+  .header-buttons {
+    display: flex;
+    flex-direction: column; /* Aligne de haut en bas */
+    width: 90%; /* Prend presque toute la largeur du tel */
+    margin: 20px auto;
+  }
+
+  /* Les boutons prennent toute la largeur disponible */
+  .header-buttons button, 
+  .header-buttons .btn-bibliotheque {
+    width: 100%;
+    margin: 8px 0; /* Un peu d'espace entre chaque bouton */
+    box-sizing: border-box; /* Empêche le bouton de déborder */
+  }
+
+  /* 3. On réduit un peu les gros titres pour les petits écrans */
+  h1 { 
+    font-size: 2rem; 
+  }
+  
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  /* 4. On donne un peu d'air à la fiche ninja */
+  .fiche-ninja {
+    width: 90%;
+    padding: 10px;
+    text-align: left; /* C'est souvent plus lisible à gauche sur mobile */
+  }
+}
