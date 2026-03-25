@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Reggae+One&display=swap');
+
+/* --- RÉGLAGES GÉNERAUX --- */
+body {
+    background-color: black;
+    color: red; /* La couleur globale est rouge */
+    font-family: 'Bangers', cursive; /* Police par défaut */
+    margin: 0; /* Enlève les marges moches du navigateur */
+}
+
+/* --- LE RECADRAGE DU TEXTE (LE SECRET DE SAKURA) --- */
+.contenu-central {
+    max-width: 800px; /* Le texte ne dépassera JAMAIS 800 pixels de large */
+    margin: 40px auto; /* Centre le bloc horizontalement sur la page */
+    padding: 0 20px; /* Ajoute une petite marge de sécurité sur les côtés pour les téléphones */
+    text-align: center; /* Centre les titres et le texte, comme pour Sakura */
+}
+
+/* --- STYLE DES TEXTES --- */
+h1 {
+    font-size: 3rem;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-top: 50px;
+}
+
+/* Les paragraphes à l'intérieur de la boîte centrale */
+.contenu-central p {
+    font-family: 'Bangers', cursive; /* Même police que Sakura */
+    font-size: 1.3rem; /* Légèrement plus grand pour bien lire */
+    line-height: 1.6; /* Aère les lignes (très important) */
+    text-align: center; /* Centre le texte (ou mets "justify" si tu préfères un bloc droit) */
+    margin-bottom: 20px;
+}
+
+/* --- ANIMATION DES NUAGES ROUGES --- */
+.ciel-akatsuki {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; 
+    pointer-events: none; 
+    overflow: hidden;
+}
+
+
+
+
+/* ==========================================================
+   --- LE BOUTON AKATSUKI EN HAUT À GAUCHE ---
+   ========================================================== */
+
+.lien-ninja-akatsuki {
+    /* --- STRUCTURE EXACTE (Copie de Sakura) --- */
+    text-decoration: none;
+    
+    /* Pour forcer l'alignement à gauche dans un parent centré */
+    display: block;         /* Devient un bloc pour utiliser les marges auto */
+    width: fit-content;     /* S'adapte exactement à la taille du texte */
+    
+    /* Placement en haut à gauche de son conteneur */
+    margin-top: 10px;       /* Un petit espace en haut */
+    margin-bottom: 20px;    /* Espace avant ton H1 */
+    margin-left: 0;         /* Collé à gauche du padding de son conteneur */
+    margin-right: auto;     /* Le pousse vers la gauche */
+    
+    padding: 15px 30px;
+    
+    /* Police de ton projet */
+    font-family: 'Bangers', cursive;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    
+    /* Transition fluide pour la brillance */
+    transition: all 0.3s ease-in-out;
+
+    /* --- COULEURS ADAPTÉES (Normal) --- */
+    background-color: transparent; /* Fond transparent */
+    color: red; /* Rouge au lieu de rose */
+    border: 2px solid red; /* Bordure rouge au lieu de rose */
+}
+
+/* --- EFFET AU SURVOL (Chakra Rouges) --- */
+.lien-ninja-akatsuki:hover {
+    cursor: pointer;
+    
+    /* Petit effet de déplacement vers le haut EXACT */
+    transform: translateY(-3px);
+    
+    /* --- COULEURS ADAPTÉES (Hover) --- */
+    background-color: red; /* Le fond devient rouge intense au lieu de blanc */
+    color: black; /* Le texte devient noir pour le contraste sur le fond rouge */
+    
+    /* Brillance ROUGE intense (effet Sharingan) au lieu de blanche */
+    box-shadow: 0 0 20px red, 0 0 40px red;
+}
+
+
+/* ==========================================================
+   --- LISTE DES MEMBRES AKATSUKI ---
+   ========================================================== */
+
+/* 1. On nettoie la liste (plus de points, plus de décalage) */
+.liste-membres {
+    list-style-type: none; /* C'est la ligne magique qui tue les points ! */
+    padding: 0; /* Enlève le décalage invisible que le navigateur met par défaut */
+    margin: 30px 0; /* Ajoute un peu d'espace au-dessus et en dessous de la liste */
+}
+
+/* 2. On espace chaque membre */
+.liste-membres li {
+    margin-bottom: 15px; /* Met de l'espace entre chaque ligne */
+}
+
+/* 3. On stylise les liens pour qu'ils ne ressemblent pas à de vieux liens bleus moches */
+.liste-membres a {
+    text-decoration: none; /* Enlève le trait moche sous le lien */
+    color: red; /* La couleur de base du texte */
+    font-size: 1.5rem; /* La taille du texte */
+    font-family: 'Bangers', cursive; /* On garde la police stylée */
+    transition: all 0.3s ease; /* Prépare une animation fluide */
+}
+
+/* 4. L'effet Sharingan au survol de la souris */
+.liste-membres a:hover {
+    color: white; /* Le texte devient blanc au survol */
+    text-shadow: 0 0 15px red, 0 0 30px red; /* Effet de brillance rouge autours du texte blanc */
+    letter-spacing: 2px; /* Les lettres s'écartent légèrement, effet très classe ! */
+}
+
+
+.nuage {
+    position: absolute;
+    background-image: url('Akatsuki.jpg'); /* C'est bien ton image ! */
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.6; 
+    animation: flotter linear infinite;
+}
+
+.nuage1 { width: 200px; height: 120px; top: 10%; left: -250px; animation-duration: 35s; }
+.nuage2 { width: 150px; height: 90px; top: 40%; left: -200px; animation-duration: 25s; animation-delay: 10s; }
+.nuage3 { width: 100px; height: 60px; top: 70%; left: -150px; animation-duration: 45s; animation-delay: 5s; opacity: 0.3; }
+
+@keyframes flotter {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(120vw); }
+}
+
+
+.akatsuki-flex-container {
+    display: flex;
+    align-items: center; /* Aligne l'image et la liste au même niveau vertical */
+    justify-content: center;
+    gap: 50px; /* L'espace entre la liste et l'image */
+    margin-top: 50px;
+    flex-wrap: wrap; /* Pour que ça s'adapte sur téléphone */
+}
+
+.akatsuki-list-column {
+    text-align: left; /* Pour que les puces de la liste soient bien droites */
+}
+
+.titre-membres {
+    margin-top: 0; /* Enlève la marge au-dessus du h2 pour qu'il soit bien aligné avec l'image */
+}
+
+/* --- L'IMAGE STYLE SAKURA (Couleurs Akatsuki) --- */
+.akatsuki-img {
+    width: 280px; 
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4); /* Ombre rouge au repos */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* L'animation fluide */
+}
+
+.akatsuki-img:hover {
+    transform: translateY(-10px); /* L'image monte */
+    box-shadow: 0 15px 30px rgba(255, 0, 0, 0.6); /* L'ombre rouge grandit */
+    cursor: pointer;
+}
+
+/* Espace au-dessus du titre des chefs pour aérer la colonne */
+.titre-chefs {
+    margin-top: 40px; 
+}
