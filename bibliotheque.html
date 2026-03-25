@@ -25,7 +25,7 @@
 
 
 <div class="audio-section">
-    <button class="btn-zen" onclick="toggleMusic()">🎵 AMBIANCE ZEN</button>
+    <button id="btn-zen" class="btn-zen" onclick="toggleMusic()">🎵 AMBIANCE ZEN</button>
 </div>
 </div>
     <a href="index.html" class="btn-retour">⬅ RETOUR AU VILLAGE</a>
@@ -73,10 +73,14 @@
 // La musique ZEN
 function toggleMusic() {
     let audioZen = document.getElementById("musique-zen");
+    let boutonZen = document.getElementById("btn-zen"); // On attrape le bouton magique
+
     if (audioZen.paused) {
         audioZen.play();
+        boutonZen.textContent = "🛑 ARRÊTER LA MUSIQUE ZEN"; // Le texte change quand ça joue
     } else {
         audioZen.pause();
+        boutonZen.textContent = "🎵 AMBIANCE ZEN"; // Le texte revient quand c'est en pause
     }
 }
 
