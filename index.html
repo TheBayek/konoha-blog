@@ -26,8 +26,24 @@
     <audio id="naruto-epic-music" src="Naruto-MainTheme.mp3"></audio>
 
     <script>
-      function lancerMusique() {
-        document.getElementById("naruto-epic-music").play();
+      // Fonction pour Play/Pause la musique épique
+      function toggleMusique() {
+        let audio = document.getElementById("naruto-epic-music");
+        if (audio.paused) {
+          audio.play();
+        } else {
+          audio.pause();
+        }
+      }
+
+      // Fonction pour Play/Pause le son du Genjutsu
+      function toggleGenjutsu() {
+        let audio = document.getElementById("audio-boo");
+        if (audio.paused) {
+          audio.play();
+        } else {
+          audio.pause();
+        }
       }
 
       function activationSharingan() {
@@ -42,14 +58,12 @@
   </head>
   <body>
     <div class="header-buttons">
-      <button onclick="document.getElementById('audio-boo').play()">
-        Lancer le Genjutsu
-      </button>
+      <button onclick="toggleGenjutsu()">Lancer / Arrêter le Genjutsu</button>
       <a href="bibliotheque.html" class="btn-bibliotheque"
         >À la bibliothèque !</a
       >
-      <button class="btn-naruto" onclick="lancerMusique()">
-        LANCER LA MUSIQUE
+      <button class="btn-naruto" onclick="toggleMusique()">
+        MUSIQUE (ON / OFF)
       </button>
     </div>
 
