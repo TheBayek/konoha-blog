@@ -31,6 +31,68 @@ h1 { font-family: 'Reggae One', cursive; font-size: 2.5rem; }
     cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><circle cx='16' cy='16' r='14' fill='%23a288e3' stroke='black' stroke-width='1'/><circle cx='16' cy='16' r='10' fill='none' stroke='black' stroke-width='1'/><circle cx='16' cy='16' r='6' fill='none' stroke='black' stroke-width='1'/><circle cx='16' cy='16' r='2' fill='black'/></svg>") 16 16, pointer !important;
 }
 
+
+/* ==========================================================
+   --- CARTE AKATSUKI (Dans la Bibliothèque) ---
+   ========================================================== */
+
+.akatsuki-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none; /* Enlève le trait moche du lien */
+    
+    /* Le design sombre de la carte */
+    background-color: #111; /* Un gris trèèès foncé, presque noir */
+    border: 2px solid red; /* La bordure rouge Akatsuki */
+    border-radius: 15px; /* Bords arrondis */
+    padding: 20px;
+    width: 250px; /* Adapte la largeur selon tes autres cartes */
+    margin: 20px;
+    
+    /* L'ombre rouge de base */
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2);
+    
+    /* Prépare l'animation fluide */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* L'image à l'intérieur de la carte */
+.akatsuki-card img {
+    width: 100%; /* Prend toute la largeur de la carte */
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* Le titre de la carte */
+.akatsuki-card h3 {
+    color: red;
+    font-family: 'Bangers', cursive;
+    font-size: 2rem;
+    margin: 0;
+    letter-spacing: 2px;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* --- L'EFFET AU SURVOL (Lévitation et Chakra) --- */
+.akatsuki-card:hover {
+    /* La carte monte de 10px (Comme Sakura !) */
+    transform: translateY(-10px);
+    
+    /* L'ombre rouge devient énorme */
+    box-shadow: 0 15px 30px rgba(255, 0, 0, 0.7);
+    
+    /* Le fond devient noir absolu */
+    background-color: #000;
+}
+
+/* Le texte change aussi au survol */
+.akatsuki-card:hover h3 {
+    color: white; /* Le texte devient blanc */
+    text-shadow: 0 0 10px red, 0 0 20px red; /* Halo rouge autour du blanc */
+}
+
 .btn-retour:hover, button:hover {
     background-color: white !important;
     color: #ff9900 !important;
