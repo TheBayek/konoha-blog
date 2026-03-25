@@ -26,23 +26,29 @@
     <audio id="naruto-epic-music" src="Naruto-MainTheme.mp3"></audio>
 
     <script>
-      // Fonction pour Play/Pause la musique épique
       function toggleMusique() {
         let audio = document.getElementById("naruto-epic-music");
+        let bouton = document.getElementById("btn-musique"); // On attrape le bouton
+
         if (audio.paused) {
           audio.play();
+          bouton.textContent = "ARRÊTER LA MUSIQUE"; // Le texte change !
         } else {
           audio.pause();
+          bouton.textContent = "LANCER LA MUSIQUE"; // Le texte revient à la normale
         }
       }
 
-      // Fonction pour Play/Pause le son du Genjutsu
       function toggleGenjutsu() {
         let audio = document.getElementById("audio-boo");
+        let bouton = document.getElementById("btn-genjutsu"); // On attrape le bouton
+
         if (audio.paused) {
           audio.play();
+          bouton.textContent = "ARRÊTER LE GENJUTSU"; // Le texte change !
         } else {
           audio.pause();
+          bouton.textContent = "LANCER LE GENJUTSU"; // Le texte revient à la normale
         }
       }
 
@@ -58,12 +64,14 @@
   </head>
   <body>
     <div class="header-buttons">
-      <button onclick="toggleGenjutsu()">Lancer / Arrêter le Genjutsu</button>
+      <button id="btn-genjutsu" onclick="toggleGenjutsu()">
+        LANCER LE GENJUTSU
+      </button>
       <a href="bibliotheque.html" class="btn-bibliotheque"
         >À la bibliothèque !</a
       >
-      <button class="btn-naruto" onclick="toggleMusique()">
-        MUSIQUE (ON / OFF)
+      <button id="btn-musique" class="btn-naruto" onclick="toggleMusique()">
+        LANCER LA MUSIQUE
       </button>
     </div>
 
