@@ -4,8 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Profil Ninja</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="compte.css">
+    
+    <link rel="stylesheet" href="style.css?v=11"> 
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+        body { margin: 0; padding: 0; } /* Reset important pour la navbar sticky */
+
+        /* La barre noire tout en haut */
+        .navbar {
+            background-color: black;
+            width: 100%;
+            padding: 15px 0;
+            display: flex;
+            justify-content: center;
+            gap: 40px; /* Espace entre les deux mots */
+            position: sticky; /* Reste en haut quand on descend la page */
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #222;
+        }
+
+        /* Le style de base du texte (Blanc) */
+        .nav-link {
+            color: white !important; /* Force la couleur blanche, fini le violet ! */
+            font-family: 'Bangers', cursive;
+            font-size: 1.5rem;
+            text-decoration: none; /* Enlève le soulignement moche */
+            position: relative; /* Indispensable pour placer le trait en dessous */
+            padding-bottom: 5px; /* Laisse de la place pour le trait */
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        /* Le petit trait INVISIBLE par défaut */
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0; /* Il fait 0 de largeur, donc on ne le voit pas */
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background-color: white; /* Trait blanc au survol */
+            transition: width 0.3s ease; /* Animation fluide de la largeur */
+        }
+
+        /* L'animation : quand on passe la souris, le trait prend 100% de la largeur */
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* 🟠 STYLE DE LA PAGE ACTUELLE (La classe .active) */
+        .nav-link.active {
+            color: #ff9900 !important; /* Le fameux orange Naruto ! */
+        }
+
+        /* Le trait orange reste tout le temps affiché pour la page actuelle */
+        .nav-link.active::after {
+            width: 100%;
+            background-color: #ff9900;
+        }
+
+        /* Ajustement Mobile */
+        @media (max-width: 768px) {
+            .navbar {
+                gap: 15px;
+                padding: 10px 0;
+            }
+            .nav-link {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -13,37 +84,12 @@
         <a href="index.html" class="nav-link">Accueil</a>
         <a href="mon-compte.html" class="nav-link active">Mon Profil</a>
     </nav>
+    ```
 
-    <div class="profil-carte">
-        <img id="affichage-avatar" src="" alt="Mon Avatar" class="avatar-img">
-        <h2 id="affichage-pseudo">Nom Inconnu</h2>
-        <p class="rang-ninja">Rang : <strong>Genin 🍃</strong></p>
-        
-        <button onclick="deconnexion()" class="btn-deconnexion">SE DÉCONNECTER</button>
-    </div>
+### 🧠 Les 3 réparations effectuées :
 
-    <script>
-        // 1. On récupère les infos sauvegardées
-        let pseudoSauvegarde = localStorage.getItem("ninjaPseudo");
-        let avatarSauvegarde = localStorage.getItem("ninjaAvatar");
+1. **La Police :** J'ai rajouté l'importation de la police Bangers directement dans le style intégré.
+2. **La Couleur :** J'ai forcé `color: white !important` sur les liens pour écraser le violet par défaut.
+3. **Le Soulignement :** `text-decoration: none` pour enlever le trait violet, remplacé par l'animation du trait blanc au survol et orange sur la page active.
 
-        // 2. Vérification : S'il n'a pas de compte, on le vire !
-        if (!pseudoSauvegarde) {
-            alert("🛑 Halte-là ! Tu dois d'abord créer un compte.");
-            window.location.href = "creation-compte.html";
-        } else {
-            // 3. On affiche ses infos sur la page
-            document.getElementById("affichage-pseudo").textContent = pseudoSauvegarde;
-            document.getElementById("affichage-avatar").src = avatarSauvegarde;
-        }
-
-        // 4. Fonction pour se déconnecter
-        function deconnexion() {
-            localStorage.removeItem("ninjaPseudo");
-            localStorage.removeItem("ninjaAvatar");
-            alert("💨 Déconnexion réussie (Technique de permutation !)");
-            window.location.href = "index.html";
-        }
-    </script>
-</body>
-</html>
+Fais ton Commit & Sync, un bon `Ctrl + F5` et dis-moi si ta navbar a retrouvé son style de ninja ! 🍥🔥
