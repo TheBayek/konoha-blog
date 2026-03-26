@@ -74,7 +74,29 @@ div{text-align: center;}
 
 
 
+/* ==========================================================
+   🖼️ JUTSU DES IMAGES ET DESCRIPTIONS
+   ========================================================== */
 
+.boite-image {
+    text-align: center; /* Centre l'image et le texte */
+    margin: 30px auto; /* Espace au-dessus et en dessous */
+    max-width: 350px; /* La largeur max pour pas que ce soit géant */
+}
+
+.boite-image img {
+    width: 100%; /* L'image prend toute la largeur de sa boîte */
+    height: auto;
+    filter: drop-shadow(0px 10px 15px rgba(255, 0, 0, 0.3)); /* Une petite ombre rouge stylée ! */
+}
+
+.boite-image figcaption {
+    font-family: 'Reggae One', cursive; /* On utilise l'autre police pour que ça ressorte ! */
+    font-size: 1rem;
+    color: white; /* Texte en blanc ou gris clair */
+    margin-top: 10px;
+    font-style: italic; /* Met le texte légèrement penché */
+}
 
 
 
