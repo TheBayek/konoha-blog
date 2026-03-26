@@ -86,7 +86,130 @@ h2{
 
 
 
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Reggae+One&display=swap');
 
+
+body{background-color: black;
+color:#ff9900 ;
+font-family: Bangers,cursive;}
+h1{
+    text-align: center;
+}
+
+
+.btn-retour-biblio {
+    display: inline-block;
+    background-color: #1a1a1a;
+    color: #ff9900;
+    border: 2px solid #ff9900;
+    padding: 10px 20px;
+    margin: 20px;
+    text-decoration: none;
+    font-family: 'Bangers', cursive;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-retour-biblio:hover {
+    background-color: #ff9900;
+    color: black;
+    transform: scale(1.1);
+}
+
+h1 {
+    text-align: center;
+}
+h2{
+    text-align: center;
+}
+.naruto-def{
+    text-align: center;
+}
+.sasuke-def{
+    text-align: center;
+}
+.sakura-def{
+    text-align: center;
+}
+.uzumaki-def{
+    text-align: center;
+}
+
+/* =========================================
+   🛑 JUTSU DE LISIBILITÉ ET RESPONSIVE (SIGNIFICATIONS)
+   ========================================= */
+
+/* 1. Sur PC : On rassemble toutes tes définitions et on bloque la largeur */
+.naruto-def, .sasuke-def, .sakura-def, .uzumaki-def {
+    max-width: 800px; /* La même limite parfaite pour les yeux */
+    margin: 30px auto;
+    padding: 0 20px;
+    line-height: 1.6;
+}
+
+/* 2. Sur Mobile : Adaptation aux petits écrans */
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; padding: 0 10px; }
+    h2 { font-size: 1.5rem; }
+    
+    .naruto-def, .sasuke-def, .sakura-def, .uzumaki-def {
+        width: 90%;
+        margin: 0 auto 20px auto;
+        font-size: 1.1rem;
+        text-align: left;
+    }
+
+    .btn-retour-biblio {
+        display: block;
+        width: 85%;
+        margin: 20px auto;
+        text-align: center;
+        box-sizing: border-box;
+    }
+}
+
+/* ==========================================================
+   🌀 NOUVEAU STYLE POUR L'IMAGE NARUTOMAKI
+   ========================================================== */
+
+/* Style de l'image elle-même */
+.narutomaki-img {
+    display: block; /* Nécessaire pour centrer */
+    max-width: 150px; /* Taille raisonnable sur PC */
+    height: auto;
+    margin: 20px auto; /* Centre horizontalement avec de l'espace */
+    border-radius: 10px; /* Bords légèrement arrondis */
+    filter: drop-shadow(0 0 10px rgba(255, 153, 0, 0.5)); /* Petite lueur chakra orange */
+    transition: transform 0.3s ease; /* Préparation pour effet au survol */
+}
+
+/* Petit effet sympa quand on passe la souris sur l'image */
+.narutomaki-img:hover {
+    transform: scale(1.1) rotate(5deg); /* Grandit et tourne un peu */
+}
+
+/* Style de la description "un narutomaki (naruto)" */
+.description-naruto {
+    font-size: 1.1rem;
+    color: white; /* Contrasté contre le fond noir */
+    font-style: italic; /* Style légende */
+    margin-bottom: 40px; /* Espace avant la définition suivante (Sasuke) */
+    text-align: center; /* Assure que la légende est centrée */
+}
+
+/* Ajustement spécifique mobile pour la nouvelle image */
+@media (max-width: 768px) {
+    .narutomaki-img {
+        max-width: 120px; /* Un peu plus petit sur téléphone */
+        margin: 15px auto;
+    }
+    
+    .description-naruto {
+        font-size: 1rem;
+        text-align: center; /* On garde la légende centrée même si le reste est à gauche */
+    }
+}
 
 
 
