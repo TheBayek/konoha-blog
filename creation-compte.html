@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Créer un compte - Konoha</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="compte.css">
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="creation-compte.css"> 
 </head>
 <body>
 
@@ -21,19 +21,18 @@
         <input type="text" id="new-pseudo" class="input-konoha" placeholder="Choisis ton Pseudo...">
         <input type="password" id="new-pass" class="input-konoha" placeholder="Mot de passe secret...">
         
-        <p style="color: white; font-family: sans-serif; margin-bottom: 5px; text-align: left;">Photo de profil :</p>
-        <input type="file" id="avatar-upload" class="input-file" accept="image/*">
+        <p style="margin-bottom: 5px; font-size: 0.9rem; width: 100%; text-align: left; color: #ccc;">Photo de profil (Optionnel, Max 2 Mo) :</p>
+        <input type="file" id="avatar-upload" class="input-file-konoha" accept="image/*">
         
-        <button onclick="creerLeCompte()" class="btn-login" style="margin-top: 20px;">CRÉER MON COMPTE</button>
+        <button onclick="creerLeCompte()" class="btn-login">CRÉER MON COMPTE</button>
         
-        <p class="mot-de-passe-oublie">
-            <a href="enregistrement.html">Retour à l'enregistrement</a>
-        </p>
+        <a href="enregistrement.html" class="lien-retour">Retour à l'enregistrement</a>
     </div>
 
     <script>
         function creerLeCompte() {
-            let pseudo = document.getElementById("new-pseudo").value.trim();
+            // Force le pseudo en minuscules pour éviter les bugs
+            let pseudo = document.getElementById("new-pseudo").value.trim().toLowerCase();
             let fileInput = document.getElementById("avatar-upload");
 
             if (pseudo === "") {
@@ -44,19 +43,35 @@
             // On sauvegarde le pseudo
             localStorage.setItem("ninjaPseudo", pseudo);
 
-            // On gère l'image
             if (fileInput.files.length > 0) {
+                let fichier = fileInput.files[0];
+                
+                // Sécurité contre les images trop lourdes (Max 2.5 Mo)
+                if (fichier.size > 2500000) {
+                    alert("⚠️ Ton image est trop lourde (Max 2.5 Mo) ! On t'a mis l'avatar de base de Konoha.");
+                    localStorage.setItem("ninjaAvatar", "telechargement.jpg");
+                    window.location.href = "mon-compte.html";
+                    return;
+                }
+
                 let reader = new FileReader();
                 reader.onload = function(event) {
-                    localStorage.setItem("ninjaAvatar", event.target.result);
-                    alert("✅ Compte créé ! Ouverture des portes...");
-                    window.location.href = "mon-compte.html"; // Redirection DIRECTE vers le compte
+                    try {
+                        localStorage.setItem("ninjaAvatar", event.target.result);
+                        alert("✅ Compte créé avec succès ! Ouverture des portes...");
+                        window.location.href = "mon-compte.html";
+                    } catch(e) {
+                        alert("⚠️ Image trop compliquée. Avatar par défaut appliqué.");
+                        localStorage.setItem("ninjaAvatar", "telechargement.jpg");
+                        window.location.href = "mon-compte.html";
+                    }
                 };
-                reader.readAsDataURL(fileInput.files[0]);
+                reader.readAsDataURL(fichier);
             } else {
-                localStorage.setItem("ninjaAvatar", "telechargement.jpg"); // Image par défaut si vide
-                alert("✅ Compte créé ! Ouverture des portes...");
-                window.location.href = "mon-compte.html"; // Redirection DIRECTE vers le compte
+                // S'il ne met pas d'image
+                localStorage.setItem("ninjaAvatar", "telechargement.jpg");
+                alert("✅ Compte créé ! (Avatar de Konoha par défaut)");
+                window.location.href = "mon-compte.html";
             }
         }
     </script>
