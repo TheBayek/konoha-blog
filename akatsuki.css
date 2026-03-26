@@ -135,18 +135,26 @@ h2 {
 }
 
 
+/* --- ANIMATION DES NUAGES (CORRIGÉE) --- */
 .nuage {
     position: absolute;
-    background-image: url('Akatsuki.jpg'); /* C'est bien ton image ! */
+    background-image: url('akatsuki.png'); 
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0.6; 
     animation: flotter linear infinite;
 }
 
+/* 👇 RAJOUTE CES 3 LIGNES JUSTE ICI 👇 */
 .nuage1 { width: 200px; height: 120px; top: 10%; left: -250px; animation-duration: 35s; }
 .nuage2 { width: 150px; height: 90px; top: 40%; left: -200px; animation-duration: 25s; animation-delay: 10s; }
 .nuage3 { width: 100px; height: 60px; top: 70%; left: -150px; animation-duration: 45s; animation-delay: 5s; opacity: 0.3; }
+/* ☝️ JUSQU'ICI ☝️ */
+
+@keyframes flotter {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(120vw); }
+}
 
 @keyframes flotter {
     0% { transform: translateX(0); }
@@ -201,7 +209,50 @@ h2 {
 
 
 
+/* ==========================================================
+   📱 JUTSU RESPONSIVE (MOBILE) - AKATSUKI
+   ========================================================== */
 
+@media (max-width: 768px) {
+    /* 1. On centre le bouton de retour sur mobile */
+    .lien-ninja-akatsuki {
+        margin: 10px auto 30px auto; /* Enlève l'alignement à gauche */
+        text-align: center;
+        width: 85%; /* S'étale joliment */
+        box-sizing: border-box;
+    }
+
+    /* 2. On réduit la taille du grand titre */
+    h1 {
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+    }
+
+    /* 3. On empile la liste et l'image proprement */
+    .akatsuki-flex-container {
+        flex-direction: column-reverse; /* Met l'image au-dessus de la liste ! */
+        gap: 30px;
+        margin-top: 30px;
+    }
+
+    /* 4. On s'assure que la liste est bien centrée sur mobile */
+    .akatsuki-list-column {
+        text-align: center;
+    }
+
+    /* 5. L'image prend la bonne taille sans déborder */
+    .akatsuki-img {
+        width: 90%;
+        max-width: 300px; /* Ne devient pas énorme sur tablette */
+        margin: 0 auto;
+    }
+
+    /* 6. Le texte ne touche pas les bords */
+    .contenu-central p {
+        font-size: 1.1rem;
+        text-align: left; /* Plus facile à lire sur tel */
+    }
+}
 
 
 
