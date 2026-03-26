@@ -141,7 +141,22 @@ h1, h2, h3, .personnalite {
 
 
 
+/* ==========================================================
+   🕵️ LE POINT FANTÔME (ZÉRO TRACE)
+   ========================================================== */
 
+.point-secret {
+    color: inherit; /* Couleur du texte normal */
+    cursor: text;   /* Garde le curseur de texte (la barre '|') */
+    padding: 0 1px;
+    display: inline-block;
+    user-select: none; /* Empêche de surligner le point par erreur */
+}
+
+/* Optionnel : On peut ajouter un petit effet au clic pour faire genre c'est un bug */
+.point-secret:active {
+    opacity: 0.8;
+}
 
 
 
