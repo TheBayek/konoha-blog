@@ -308,6 +308,23 @@ h1 { font-family: 'Reggae One', cursive; font-size: 2.5rem; }
 
 
 
+/* ==========================================================
+   🍥 EFFET SPÉCIAL NARUTOMAKI
+   ========================================================== */
+
+/* L'ombre rose de base pour le Narutomaki */
+.carte-significations img {
+    filter: drop-shadow(0px 5px 10px rgba(255, 105, 180, 0.4)); 
+    transition: transform 0.3s ease, filter 0.3s ease; /* Pour que l'animation soit fluide */
+}
+
+/* L'effet au survol : l'image grossit et l'ombre rose explose ! */
+.carte-significations:hover img {
+    transform: scale(1.1); 
+    filter: drop-shadow(0px 10px 20px rgba(255, 105, 180, 0.9)); 
+}
+
+
 /* =========================================
    📱 JUTSU RESPONSIVE (MOBILE FIRST) - BIBLIOTHÈQUE
    ========================================= */
