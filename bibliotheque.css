@@ -446,3 +446,22 @@ h1 { font-family: 'Reggae One', cursive; font-size: 2.5rem; }
 }
 
 
+/* ==========================================================
+   😈 PIÈGE UWU (SUGGESTION MYSTÈRE)
+   ========================================================== */
+
+/* On donne un style unique à la ligne mystère dans les suggestions */
+.suggestion-mystere {
+    color: #ff00ff !important; /* Texte en rose flashy UWU ! */
+    font-weight: bold;
+    font-family: 'Bangers', cursive !important; /* Police stylée */
+    text-shadow: 0 0 8px rgba(255, 0, 255, 0.6);
+    border-top: 2px dashed #ff00ff !important; /* Petite séparation pointillée au-dessus */
+}
+
+/* L'effet quand la victime passe sa souris dessus */
+.suggestion-mystere:hover {
+    background-color: #1a1a1a !important; /* Fond noir sombre */
+    color: white !important;
+    box-shadow: inset 0 0 15px #ff00ff; /* Lueur rose à l'intérieur */
+}

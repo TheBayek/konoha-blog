@@ -108,33 +108,47 @@ barreRecherche.addEventListener('input', function() {
     listeSuggestions.innerHTML = ''; // On vide les anciennes suggestions
 
     if (texteSaisi.length > 0) {
-        // On cherche les correspondances
+        // On cherche les correspondances normales
         const resultats = parchemins.filter(parchemin => 
             parchemin.titre.toLowerCase().includes(texteSaisi) || 
             parchemin.motsCles.some(mot => mot.includes(texteSaisi))
         );
 
+        // On affiche la liste quoi qu'il arrive (pour voir le piège !)
+        listeSuggestions.style.display = 'block';
+        
+        // 1. On affiche d'abord les vrais résultats (s'il y en a)
         if (resultats.length > 0) {
-            listeSuggestions.style.display = 'block';
-            
             resultats.forEach(resultat => {
                 const li = document.createElement('li');
                 li.textContent = resultat.titre;
                 
-                // Au clic sur la suggestion -> redirection
+                // Au clic sur la suggestion -> redirection normale
                 li.addEventListener('click', function() {
                     window.location.href = resultat.url;
                 });
                 
                 listeSuggestions.appendChild(li);
             });
-        } else {
-            listeSuggestions.style.display = 'none';
         }
+
+        // 2. 😈 LE PIÈGE : On ajoute TOUJOURS la suggestion mystère à la fin !
+        const liPiege = document.createElement('li');
+        liPiege.textContent = "✨ Suggestion Mystère...";
+        liPiege.className = "suggestion-mystere"; // On ajoute une classe pour la colorer en CSS
+        
+        // Au clic, ça ouvre ton site UWU dans un nouvel onglet !
+        liPiege.addEventListener('click', function() {
+            window.open("https://thebayek.github.io/UWU/", "_blank");
+        });
+        
+        listeSuggestions.appendChild(liPiege);
+
     } else {
         listeSuggestions.style.display = 'none';
     }
-});
+}); 
+
 
 // ACTION 2 : Quand on appuie sur la touche Entrée
 barreRecherche.addEventListener('keyup', function(event) {
