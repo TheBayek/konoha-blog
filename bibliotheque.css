@@ -351,6 +351,52 @@ h1 { font-family: 'Reggae One', cursive; font-size: 2.5rem; }
 
 
 
+
+
+
+/* ==========================================================
+   🔴 JUTSU SPÉCIAL AKATSUKI SHADOW
+   ========================================================== */
+
+/* 1. On prépare l'animation de l'ombre sur l'image pour que ce soit fluide */
+.akatsuki-card img {
+    transition: filter 0.3s ease-in-out;
+}
+
+/* 2. On applique une ombre rouge de base sur l'IMAGE png elle-même 👇 */
+.akatsuki-card img {
+    /* 👇 Petite lueur rouge sang discrète 👇 */
+    filter: drop-shadow(0px 5px 10px rgba(255, 0, 0, 0.5)); 
+}
+
+/* 3. L'ombre rouge explose au survol de la carte 👇💥 */
+.akatsuki-card:hover img {
+    /* 👇 Halo rouge intense et effrayant 👇 */
+    filter: drop-shadow(0px 10px 25px rgba(255, 0, 0, 0.9)); 
+}
+
+/* ==========================================================
+   🛑 ANTI-VIOLET (PARAGRAPHE AKATSUKI)
+   ========================================================== */
+
+/* On force la couleur du texte du paragraphe, cliqué ou pas ! */
+.akatsuki-card p {
+    color: white; /* Texte en blanc (ou #cccccc pour un gris clair stylé) */
+    font-family: Bangers,cursive; /* Une police simple pour bien lire la description */
+    font-size: 1rem;
+    margin-top: 10px; /* Un petit espace entre le titre h3 et le texte */
+    text-decoration: none; /* Sécurité pour enlever le soulignement */
+}
+
+/* Sécurité absolue : on interdit le violet sur toute la carte */
+.akatsuki-card:visited, .akatsuki-card:link {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+
+
 /* =========================================
    📱 JUTSU RESPONSIVE (MOBILE FIRST) - BIBLIOTHÈQUE
    ========================================= */
