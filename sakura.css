@@ -138,3 +138,59 @@ h1, h2, h3, .personnalite {
 }
 
 
+
+
+
+
+
+
+
+
+
+/* =========================================
+   📱 JUTSU RESPONSIVE (MOBILE FIRST) - SAKURA
+   ========================================= */
+
+@media (max-width: 768px) {
+    /* 1. On rétrécit les titres pour que ça ne déborde pas */
+    h1 {
+        font-size: 2rem;
+        padding: 0 10px;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    /* 2. On réorganise la section principale (Image + Texte) */
+    .principal {
+        flex-direction: column; /* On force l'image au-dessus du texte */
+        padding: 10px;
+        gap: 20px; /* Moins d'espace entre l'image et le texte */
+    }
+
+    /* 3. On empêche l'image de casser l'écran */
+    .sakura-part1 {
+        width: 90%; /* L'image prend 90% de l'écran, peu importe sa taille */
+        height: auto; /* Garde les proportions */
+        max-width: 350px; /* Elle ne deviendra jamais trop énorme sur une tablette */
+    }
+
+    /* 4. On donne de l'air au texte */
+    .principal p, .personnalite p, .apparence p, .histoire p {
+        width: 90%;
+        margin: 0 auto;
+        font-size: 1.1rem; /* Texte légèrement plus petit pour le confort sur tel */
+        text-align: left; /* Souvent plus lisible à gauche sur petit écran qu'en justifié */
+    }
+
+    /* 5. Le bouton "Retour" */
+    .lien-ninja {
+        width: 85%; /* S'étale joliment comme les autres boutons du site */
+        box-sizing: border-box;
+        text-align: center;
+        font-size: 1.2rem;
+        margin: 15px auto;
+        display: block; /* Le force à se centrer */
+    }
+}
