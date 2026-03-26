@@ -1,0 +1,70 @@
+/* ==========================================================
+   📸 STYLE DU PROFIL ET AVATAR
+   ========================================================== */
+
+/* La carte du profil personnel */
+.profil-carte {
+    background-color: #111;
+    border: 3px solid #ff9900;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 450px;
+    margin: 50px auto;
+    padding: 40px 20px;
+    box-shadow: 0 0 25px rgba(255, 153, 0, 0.5);
+    text-align: center;
+}
+
+/* Le style de la photo de profil */
+.avatar-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Fait un rond parfait */
+    border: 4px solid #ff9900;
+    object-fit: cover; /* Empêche l'image de s'écraser */
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px #ff9900;
+}
+
+.profil-carte h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin: 10px 0;
+    text-shadow: 2px 2px 5px black;
+}
+
+.rang-ninja {
+    color: #ff9900;
+    font-size: 1.2rem;
+    font-family: sans-serif;
+    margin-bottom: 30px;
+}
+
+.btn-deconnexion {
+    background-color: transparent;
+    color: red;
+    border: 2px solid red;
+    padding: 10px 20px;
+    font-family: 'Bangers', cursive;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-deconnexion:hover {
+    background-color: red;
+    color: white;
+    box-shadow: 0 0 15px red;
+}
+
+/* Rendre le bouton d'upload d'image moins moche */
+.input-file {
+    color: white;
+    font-family: sans-serif;
+    background: #222;
+    padding: 10px;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}

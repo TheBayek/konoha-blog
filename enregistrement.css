@@ -1,0 +1,88 @@
+/* ==========================================================
+   🔑 STYLE DE LA PAGE COMPTE
+   ========================================================== */
+
+.login-container {
+    background-color: #111;
+    border: 3px solid #ff9900;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px; /* Pas trop large sur PC */
+    margin: 50px auto; /* Centre la boîte */
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(255, 153, 0, 0.4);
+    text-align: center;
+}
+
+.login-container h2 {
+    color: #ff9900;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.login-container p {
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 25px;
+}
+
+/* Les champs pour taper le texte */
+.input-konoha {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    background-color: #222;
+    border: 2px solid #555;
+    border-radius: 8px;
+    color: white;
+    font-family: 'Bangers', cursive;
+    font-size: 1.2rem;
+    box-sizing: border-box; /* Empêche de déborder */
+    transition: 0.3s;
+}
+
+/* Effet quand on clique dans la barre pour écrire */
+.input-konoha:focus {
+    outline: none;
+    border-color: #ff9900;
+    box-shadow: 0 0 10px #ff9900;
+}
+
+/* Le bouton de connexion */
+.btn-login {
+    width: 100%;
+    background-color: #ff9900;
+    color: black;
+    border: none;
+    padding: 15px;
+    font-family: 'Bangers', cursive;
+    font-size: 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-login:hover {
+    background-color: white;
+    color: #ff9900;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px white;
+}
+
+/* Le petit lien piège en bas */
+.mot-de-passe-oublie {
+    margin-top: 20px;
+}
+
+.mot-de-passe-oublie a {
+    color: #888;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.mot-de-passe-oublie a:hover {
+    color: #ff00ff; /* Devient rose suspect au survol 😈 */
+    text-decoration: underline;
+}

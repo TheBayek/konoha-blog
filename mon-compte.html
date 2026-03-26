@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Profil Ninja</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="compte.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-link">Accueil</a>
+        <a href="bibliotheque.html" class="nav-link">Bibliothèque</a>
+        <a href="mon-compte.html" class="nav-link active">Mon Profil</a>
+    </nav>
+
+    <div class="profil-carte">
+        <img id="affichage-avatar" src="" alt="Mon Avatar" class="avatar-img">
+        <h2 id="affichage-pseudo">Nom Inconnu</h2>
+        <p class="rang-ninja">Rang : <strong>Genin 🍃</strong></p>
+        
+        <button onclick="deconnexion()" class="btn-deconnexion">SE DÉCONNECTER</button>
+    </div>
+
+    <script>
+        // 1. On récupère les infos sauvegardées
+        let pseudoSauvegarde = localStorage.getItem("ninjaPseudo");
+        let avatarSauvegarde = localStorage.getItem("ninjaAvatar");
+
+        // 2. Vérification : S'il n'a pas de compte, on le vire !
+        if (!pseudoSauvegarde) {
+            alert("🛑 Halte-là ! Tu dois d'abord créer un compte.");
+            window.location.href = "creation-compte.html";
+        } else {
+            // 3. On affiche ses infos sur la page
+            document.getElementById("affichage-pseudo").textContent = pseudoSauvegarde;
+            document.getElementById("affichage-avatar").src = avatarSauvegarde;
+        }
+
+        // 4. Fonction pour se déconnecter
+        function deconnexion() {
+            localStorage.removeItem("ninjaPseudo");
+            localStorage.removeItem("ninjaAvatar");
+            alert("💨 Déconnexion réussie (Technique de permutation !)");
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

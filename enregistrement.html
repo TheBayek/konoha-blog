@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enregistrement - Konoha</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="compte.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-link">Accueil</a>
+        <a href="bibliotheque.html" class="nav-link">Bibliothèque</a>
+        <a href="signification-et-references-des-noms.html" class="nav-link">Significations</a>
+        <a href="enregistrement.html" class="nav-link active">Compte</a>
+    </nav>
+
+    <div class="login-container">
+        <h2>📜 ENREGISTREMENT NINJA</h2>
+        <p>Identifie-toi pour entrer dans les archives de Konoha.</p>
+        
+        <input type="text" id="login-pseudo" class="input-konoha" placeholder="Nom du Shinobi...">
+        <input type="password" id="login-pass" class="input-konoha" placeholder="Code Secret...">
+        
+        <button onclick="connexionNinja()" class="btn-login">OUVRIR LES PORTES DE KONOHA</button>
+        
+        <p class="mot-de-passe-oublie" style="margin-top: 20px;">
+            <a href="creation-compte.html" style="color: #ff9900; font-weight: bold; font-size: 1.1rem;">Vous n'avez pas de compte ? Créez-en un !</a>
+        </p>
+
+        <p class="mot-de-passe-oublie">
+            <a href="#" onclick="window.location.href='https://thebayek.github.io/UWU/'">Code secret oublié ?</a>
+        </p>
+    </div>
+
+    <script>
+        function connexionNinja() {
+            let pseudoTape = document.getElementById("login-pseudo").value.trim();
+            let pseudoSauvegarde = localStorage.getItem("ninjaPseudo");
+
+            if (pseudoTape === "") {
+                alert("❌ Tu dois entrer ton pseudo !");
+                return;
+            }
+
+            // On vérifie si le compte existe dans la mémoire
+            if (pseudoTape === pseudoSauvegarde) {
+                alert("✅ Bon retour au village, " + pseudoTape + " !");
+                window.location.href = "mon-compte.html"; // Redirection vers le profil
+            } else {
+                alert("🛑 Compte introuvable ! Vérifie ton pseudo ou crée un compte.");
+            }
+        }
+    </script>
+</body>
+</html>

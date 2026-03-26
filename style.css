@@ -81,7 +81,77 @@ button:hover, .btn-bibliotheque:hover, .btn-naruto:hover {
 
 
 
+/* ==========================================================
+   🍜 HEADER DE NAVIGATION (BARRE DU HAUT)
+   ========================================================== */
 
+/* La barre noire tout en haut */
+.navbar {
+    background-color: black;
+    width: 100%;
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* L'espace entre les mots */
+    position: sticky; /* Reste en haut quand on descend la page */
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid #222; /* Petite ligne discrète pour séparer du fond */
+}
+
+/* Le style de base du texte (Blanc) */
+.nav-link {
+    color: white;
+    font-family: 'Bangers', cursive;
+    font-size: 1.5rem;
+    text-decoration: none;
+    position: relative; /* Indispensable pour placer le trait en dessous */
+    padding-bottom: 5px; /* Laisse de la place pour le trait */
+    transition: color 0.3s ease;
+}
+
+/* Le petit trait INVISIBLE par défaut */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0; /* Il fait 0 de largeur, donc on ne le voit pas */
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: white; /* Trait blanc au survol */
+    transition: width 0.3s ease; /* Animation fluide de la largeur */
+}
+
+/* L'animation : quand on passe la souris, le trait prend 100% de la largeur */
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* 🟠 STYLE DE LA PAGE ACTUELLE (La classe .active) */
+.nav-link.active {
+    color: #ff9900; /* Le fameux orange Naruto ! */
+}
+
+/* Le trait orange reste tout le temps affiché pour la page actuelle */
+.nav-link.active::after {
+    width: 100%;
+    background-color: #ff9900;
+}
+
+/* =========================================
+   📱 JUTSU RESPONSIVE POUR LA NAVBAR
+   ========================================= */
+@media (max-width: 768px) {
+    .navbar {
+        gap: 15px; /* Moins d'espace entre les mots sur mobile */
+        padding: 10px 0;
+        flex-wrap: wrap; /* Si y'a trop de liens, ça passe à la ligne proprement */
+    }
+    
+    .nav-link {
+        font-size: 1.2rem; /* Texte un peu plus petit sur téléphone */
+    }
+}
 
 
 

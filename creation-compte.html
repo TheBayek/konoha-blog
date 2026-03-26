@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer un compte - Konoha</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="compte.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-link">Accueil</a>
+        <a href="bibliotheque.html" class="nav-link">Bibliothèque</a>
+        <a href="signification-et-references-des-noms.html" class="nav-link">Significations</a>
+        <a href="enregistrement.html" class="nav-link active">Compte</a>
+    </nav>
+
+    <div class="login-container">
+        <h2>📝 CRÉATION DE COMPTE</h2>
+        <p>Choisis ton avatar et ton nom de Ninja.</p>
+        
+        <input type="text" id="new-pseudo" class="input-konoha" placeholder="Choisis ton Pseudo...">
+        <input type="password" id="new-pass" class="input-konoha" placeholder="Mot de passe secret...">
+        
+        <p style="color: white; font-family: sans-serif; margin-bottom: 5px; text-align: left;">Photo de profil :</p>
+        <input type="file" id="avatar-upload" class="input-file" accept="image/*">
+        
+        <button onclick="creerLeCompte()" class="btn-login" style="margin-top: 20px;">CRÉER MON COMPTE</button>
+        
+        <p class="mot-de-passe-oublie">
+            <a href="enregistrement.html">Retour à l'enregistrement</a>
+        </p>
+    </div>
+
+    <script>
+        function creerLeCompte() {
+            let pseudo = document.getElementById("new-pseudo").value.trim();
+            let fileInput = document.getElementById("avatar-upload");
+
+            if (pseudo === "") {
+                alert("❌ Tu dois choisir un pseudo !");
+                return;
+            }
+
+            // On sauvegarde le pseudo
+            localStorage.setItem("ninjaPseudo", pseudo);
+
+            // On gère l'image
+            if (fileInput.files.length > 0) {
+                let reader = new FileReader();
+                reader.onload = function(event) {
+                    localStorage.setItem("ninjaAvatar", event.target.result);
+                    alert("✅ Compte créé ! Ouverture des portes...");
+                    window.location.href = "mon-compte.html"; // Redirection DIRECTE vers le compte
+                };
+                reader.readAsDataURL(fileInput.files[0]);
+            } else {
+                localStorage.setItem("ninjaAvatar", "telechargement.jpg"); // Image par défaut si vide
+                alert("✅ Compte créé ! Ouverture des portes...");
+                window.location.href = "mon-compte.html"; // Redirection DIRECTE vers le compte
+            }
+        }
+    </script>
+</body>
+</html>
