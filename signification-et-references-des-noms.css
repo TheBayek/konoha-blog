@@ -212,9 +212,109 @@ h2{
 }
 
 
+/* ==========================================================
+   🌸 STYLE POUR L'IMAGE SAKURA
+   ========================================================== */
+
+.sakura-img {
+    display: block;
+    max-width: 150px;
+    height: auto;
+    margin: 20px auto;
+    filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.6)); /* Lueur rose Sakura */
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+/* Effet au survol : la fleur grandit doucement */
+.sakura-img:hover {
+    transform: scale(1.15) rotate(5deg);
+}
+
+.description-sakura {
+    font-size: 1.1rem;
+    color: white;
+    font-style: italic;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* Version Mobile */
+@media (max-width: 768px) {
+    .sakura-img {
+        max-width: 120px;
+    }
+}
 
 
 
+/* ==========================================================
+   🌀 STYLE POUR L'IMAGE UZUMAKI (EFFET SPIRALE)
+   ========================================================== */
+
+.uzumaki-img {
+    display: block;
+    max-width: 150px;
+    height: auto;
+    margin: 20px auto;
+    filter: drop-shadow(0 0 12px rgba(255, 153, 0, 0.7)); /* Lueur orange Uzumaki */
+    transition: transform 0.8s ease-in-out; /* Rotation plus lente pour le style */
+}
+
+/* Effet au survol : le tourbillon tourne à 360 degrés ! */
+.uzumaki-img:hover {
+    transform: rotate(360deg) scale(1.1);
+}
+
+.description-uzumaki {
+    font-size: 1.1rem;
+    color: white;
+    font-style: italic;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* Version Mobile */
+@media (max-width: 768px) {
+    .uzumaki-img {
+        max-width: 120px;
+    }
+}
+
+
+
+/* ==========================================================
+   🔴 STYLE POUR L'IMAGE UCHIHA
+   ========================================================== */
+
+.uchiha-img {
+    display: block;
+    max-width: 150px;
+    height: auto;
+    margin: 20px auto;
+    filter: drop-shadow(0 0 12px rgba(255, 0, 0, 0.6)); /* Lueur rouge Uchiha */
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+/* Effet au survol : l'éventail vibre un peu (comme un Sharingan qui s'active) */
+.uchiha-img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.9));
+}
+
+.description-uchiha {
+    font-size: 1.1rem;
+    color: white;
+    font-style: italic;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* Version Mobile */
+@media (max-width: 768px) {
+    .uchiha-img {
+        max-width: 120px;
+    }
+}
 
 
 
