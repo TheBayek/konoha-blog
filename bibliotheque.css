@@ -256,3 +256,61 @@ h1 { font-family: 'Reggae One', cursive; font-size: 2.5rem; }
 .carte-sakura:hover {
     box-shadow: 0 10px 25px rgba(255, 71, 215, 0.4);
 }
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   📱 JUTSU RESPONSIVE (MOBILE FIRST) - BIBLIOTHÈQUE
+   ========================================= */
+
+@media (max-width: 768px) {
+    /* 1. On réduit la taille du grand titre */
+    h1 {
+        font-size: 2rem;
+        padding: 0 10px;
+    }
+
+    /* 2. On adapte la barre de recherche pour les petits écrans */
+    .search-box {
+        width: 90% !important; /* Force la barre à prendre 90% de l'écran, pas plus */
+        margin: 10px auto !important;
+    }
+
+    #inputParchemin {
+        font-size: 1.2rem; /* Texte plus petit pour que ça rentre */
+        padding: 10px 15px;
+    }
+
+    /* 3. On empile les cartes de livres parfaitement au centre */
+    #liste-livres {
+        display: flex;
+        flex-direction: column; /* Empile les cartes de haut en bas */
+        align-items: center; /* Centre les cartes */
+        width: 100%;
+        gap: 20px; /* Un peu moins d'espace entre les cartes sur mobile */
+        margin-top: 20px;
+    }
+
+    /* 4. On ajuste la taille de TOUTES les cartes (Livres + Akatsuki) */
+    .livre, .akatsuki-card {
+        width: 85%; /* La carte prend 85% de l'écran du tel */
+        margin: 10px 0; /* Enlève les marges sur les côtés pour centrer parfaitement */
+        box-sizing: border-box; /* Empêche les débordements */
+    }
+
+    /* 5. On ajuste les boutons du haut (Retour et Zen) */
+    .btn-retour, .btn-zen {
+        width: 85%;
+        margin: 10px auto;
+        display: block; /* Force le bouton à prendre sa propre ligne */
+        box-sizing: border-box;
+    }
+}
