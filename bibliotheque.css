@@ -282,7 +282,29 @@ h1 { font-family: 'Reggae One', cursive; font-size: 2.5rem; }
 }
 
 
+/* ==========================================================
+   🌀 UNIFORMISATION ET EFFET RASENGAN (Bibliothèque)
+   ========================================================== */
 
+/* 1. On applique une taille uniforme à TOUTES les images de cartes 'livre'
+      pour que la bibliothèque reste propre et alignée */
+.livre img {
+    width: 100%; /* Prend toute la largeur de la carte */
+    height: 150px; /* Force une hauteur fixe de 150px pour tout le monde */
+    object-fit: contain; /* Garde les proportions de l'image (pas de déformation) */
+    margin-bottom: 15px; /* Espace avec le titre */
+    transition: transform 0.3s ease, filter 0.3s ease; /* Prépare l'animation fluide */
+}
+
+/* 2. Au survol de la carte Techniques, l'image grandit (comme Sakura) */
+.carte-techniques:hover img {
+    transform: scale(1.1); /* L'image grossit de 10% */
+}
+
+/* 3. EFFET CHAKRA : Au survol, on ajoute une aura bleue au Rasengan 🔵💥 */
+.carte-techniques:hover img {
+    filter: drop-shadow(0px 10px 20px rgba(0, 150, 255, 0.8)); /* Halo bleu intense */
+}
 
 
 
