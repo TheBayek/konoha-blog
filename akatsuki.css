@@ -190,3 +190,47 @@ h2 {
 .titre-chefs {
     margin-top: 40px; 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   🛑 JUTSU RESPONSIVE (AKATSUKI) - MOBILE
+   ========================================= */
+
+@media (max-width: 768px) {
+    /* 1. Sur mobile, on empile les membres en une seule colonne */
+    #liste-livres {
+        display: flex;
+        flex-direction: column; /* On force l'alignement vertical */
+        align-items: center; /* On centre les cartes au milieu de l'écran */
+        gap: 20px; /* Moins d'espace entre les cartes sur mobile */
+        margin-top: 20px;
+    }
+
+    /* 2. On ajuste la taille de CHAQUE carte de membre */
+    .livre {
+        width: 85%; /* La carte prend 85% de la largeur de l'écran du tel */
+        margin: 10px 0; /* Centre la carte horizontalement */
+        box-sizing: border-box; /* Empêche les débordements */
+    }
+
+    /* 3. On assure que l'image à l'intérieur s'adapte aussi */
+    .livre img {
+        width: 100%; /* L'image prend toute la largeur de sa carte */
+        height: auto; /* Garde les proportions d'origine */
+    }
+}
