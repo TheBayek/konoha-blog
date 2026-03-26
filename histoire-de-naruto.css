@@ -50,3 +50,109 @@ h3{text-align: center;}
 
 
 div{text-align: center;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   📱 JUTSU RESPONSIVE (MOBILE FIRST) - HISTOIRE NARUTO
+   ========================================= */
+
+
+/* =========================================
+   🛑 JUTSU DE LISIBILITÉ SUR PC (HISTOIRE NARUTO)
+   ========================================= */
+
+div, p {
+    max-width: 800px; /* Le texte s'arrête à 800px de large max */
+    margin: 30px auto; /* Centre le texte parfaitement au milieu de l'écran */
+    padding: 0 20px; /* Petite marge de sécurité */
+    line-height: 1.6; /* Aère bien les lignes pour la lecture */
+    font-size: 1.2rem; /* Une bonne taille de police pour PC */
+}
+
+
+@media (max-width: 768px) {
+    /* 1. On rétrécit un peu les titres */
+    h1 {
+        font-size: 2rem;
+        padding: 0 10px;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+        padding: 0 10px;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+    }
+
+    /* 2. On empêche le texte de coller aux bords de l'écran */
+    div, p {
+        width: 90%;
+        margin: 0 auto 15px auto; /* Centre le bloc et met un espace en bas */
+        font-size: 1.1rem;
+        text-align: left; /* Aligné à gauche, c'est plus agréable à lire sur mobile */
+        line-height: 1.5; /* Aère les lignes de texte */
+        box-sizing: border-box;
+    }
+
+    /* 3. On adapte le bouton de retour */
+    .btn-retour-biblio {
+        display: block; /* Force le bouton à prendre sa ligne */
+        width: 85%; /* S'étale joliment */
+        text-align: center; /* Centre le texte du bouton */
+        margin: 20px auto; /* Centre le bouton lui-même */
+        box-sizing: border-box;
+    }
+
+    /* Petite astuce : on enlève le glissement sur le côté sur mobile 
+       pour éviter que l'écran ne tremble quand on pose le doigt dessus */
+    .btn-retour-biblio:hover {
+        transform: translateY(-3px); /* Il montera au lieu d'aller à gauche */
+    }
+}

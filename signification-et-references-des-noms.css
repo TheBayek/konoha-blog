@@ -47,3 +47,85 @@ h2{
 .uzumaki-def{
     text-align: center;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   🛑 JUTSU DE LISIBILITÉ ET RESPONSIVE (SIGNIFICATIONS)
+   ========================================= */
+
+/* 1. Sur PC : On rassemble toutes tes définitions et on bloque la largeur */
+.naruto-def, .sasuke-def, .sakura-def, .uzumaki-def {
+    max-width: 800px; /* La même limite parfaite pour les yeux */
+    margin: 30px auto;
+    padding: 0 20px;
+    line-height: 1.6;
+}
+
+/* 2. Sur Mobile : Adaptation aux petits écrans */
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; padding: 0 10px; }
+    h2 { font-size: 1.5rem; }
+    
+    .naruto-def, .sasuke-def, .sakura-def, .uzumaki-def {
+        width: 90%;
+        margin: 0 auto 20px auto;
+        font-size: 1.1rem;
+        text-align: left;
+    }
+
+    .btn-retour-biblio {
+        display: block;
+        width: 85%;
+        margin: 20px auto;
+        text-align: center;
+        box-sizing: border-box;
+    }
+}

@@ -63,3 +63,68 @@ div{
     text-shadow: 0 0 10px #00d2ff, 0 0 20px #0088ff, 0 0 30px #0044ff;
     font-weight: bold;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   🛑 JUTSU DE LISIBILITÉ ET RESPONSIVE (TECHNIQUES)
+   ========================================= */
+
+/* 1. Sur PC : On empêche le texte de s'allonger à l'infini */
+div, .Rasengan {
+    max-width: 800px; /* Largeur max bloquée */
+    margin: 30px auto; /* "auto" centre le bloc parfaitement au milieu */
+    padding: 0 20px; /* Petite marge de sécurité */
+    line-height: 1.6; /* Aère les lignes */
+}
+
+/* 2. Sur Mobile : On adapte tout pour les petits écrans */
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; padding: 0 10px; }
+    h2 { font-size: 1.5rem; }
+    
+    div, .Rasengan {
+        width: 90%; /* Prend 90% de l'écran du tel */
+        margin: 0 auto 20px auto;
+        font-size: 1.1rem;
+        text-align: left; /* Plus facile à lire à gauche sur mobile */
+    }
+
+    .btn-retour {
+        display: block;
+        width: 85%;
+        margin: 20px auto;
+        box-sizing: border-box;
+    }
+}
