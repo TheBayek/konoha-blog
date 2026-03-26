@@ -262,6 +262,25 @@ h1 { font-family: 'Reggae One', cursive; font-size: 2.5rem; }
 
 
 
+/* ==========================================================
+   🦊 IMAGE SUR LA CARTE NARUTO (Dans la Bibliothèque)
+   ========================================================== */
+
+/* On cible l'image qui est UNIQUEMENT à l'intérieur de la carte Naruto */
+.carte-naruto img {
+    width: 100%; /* L'image prend toute la largeur de la carte */
+    height: 150px; /* On limite la hauteur pour ne pas écraser le texte */
+    object-fit: contain; /* Empêche l'image de se déformer, elle garde ses proportions */
+    margin-bottom: 15px; /* Un petit espace entre l'image et le titre */
+    filter: drop-shadow(0px 5px 10px rgba(255, 153, 0, 0.4)); /* Petite ombre orange */
+    transition: transform 0.3s ease; /* Pour l'effet au survol */
+}
+
+/* Bonus : L'image grandit un peu quand on survole la carte entière ! */
+.carte-naruto:hover img {
+    transform: scale(1.1); /* L'image grossit de 10% */
+}
+
 
 
 
@@ -314,3 +333,5 @@ h1 { font-family: 'Reggae One', cursive; font-size: 2.5rem; }
         box-sizing: border-box;
     }
 }
+
+
