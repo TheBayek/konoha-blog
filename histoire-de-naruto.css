@@ -82,6 +82,7 @@ div{text-align: center;}
     text-align: center; /* Centre l'image et le texte */
     margin: 30px auto; /* Espace au-dessus et en dessous */
     max-width: 350px; /* La largeur max pour pas que ce soit géant */
+
 }
 
 .boite-image img {
@@ -106,7 +107,30 @@ div{text-align: center;}
 
 
 
+/* ==========================================================
+   🚀 JUTSU DE LÉVITATION (ANIMATION AU SURVOL)
+   ========================================================== */
 
+/* 1. On rend le mouvement de la boîte fluide */
+.boite-image {
+    transition: transform 0.3s ease-in-out;
+}
+
+/* 2. L'image s'envole quand on met la souris dessus */
+.boite-image:hover {
+    transform: translateY(-10px); /* Monte de 10 pixels */
+    cursor: pointer;
+}
+
+/* 3. On rend l'animation de l'ombre de l'image fluide aussi */
+.boite-image img {
+    transition: filter 0.3s ease-in-out;
+}
+
+/* 4. Le chakra (l'ombre rouge) s'intensifie au survol ! */
+.boite-image:hover img {
+    filter: drop-shadow(0px 15px 30px rgba(255, 0, 0, 0.7)); /* Ombre plus grande et plus rouge */
+}
 
 
 

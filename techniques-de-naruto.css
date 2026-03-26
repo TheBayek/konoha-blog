@@ -83,11 +83,39 @@ div{
 
 
 
+/* ================= ==========================================
+   🌀 JUTSU SPÉCIAL RASENGAN (Ombre Bleue)
+   ================ ========================================== */
+
+/* On prend la même base que .boite-image mais on change juste l'ombre pour le bleu Rasengan */
+.boite-rasengan img {
+    /* 👇 Ombre bleue intense et large 👇 */
+    filter: drop-shadow(0px 10px 20px rgba(0, 150, 255, 0.6));
+}
+
+/* Optionnel : Si tu veux un titre spécial pour la section techniques */
+.techniques-naruto h2 {
+    color: #00ccff; /* Bleu Rasengan pour le titre */
+    text-shadow: 0 0 10px rgba(0, 204, 255, 0.5);
+}
 
 
 
+/* ==========================================================
+   🛑 CORRECTIF : CONFINEMENT DU RASENGAN GIGA GROS
+   ========================================================== */
 
+/* On cible spécifiquement la boîte du Rasengan pour réduire sa taille */
+.boite-rasengan {
+    max-width: 250px !important; /* 👇 On force la taille à 250px max (au lieu de 350px par défaut) 👇 */
+    margin: 20px auto; /* Toujours bien centré avec un peu d'espace autour */
+}
 
+/* On s'assure que l'image à l'intérieur s'adapte à cette nouvelle taille */
+.boite-rasengan img {
+    width: 100%;
+    height: auto;
+}
 
 
 
@@ -127,4 +155,38 @@ div, .Rasengan {
         margin: 20px auto;
         box-sizing: border-box;
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================
+   🚀 JUTSU DE LÉVITATION (ANIMATION AU SURVOL)
+   ========================================================== */
+
+/* 1. On prépare l'animation pour que ce soit super fluide */
+.boite-image, .boite-rasengan {
+    transition: transform 0.3s ease-in-out; /* Prépare le mouvement */
+}
+
+/* 2. L'effet de lévitation quand la souris est dessus ! */
+.boite-image:hover, .boite-rasengan:hover {
+    transform: translateY(-10px); /* Fait monter l'image de 10 pixels vers le haut */
+    cursor: pointer; /* Transforme la souris en petite main */
+}
+
+/* 3. BONUS : Le chakra du Rasengan brille encore plus fort quand il monte ! */
+.boite-rasengan img {
+    transition: filter 0.3s ease-in-out; /* Rend le changement de lumière fluide */
+}
+
+.boite-rasengan:hover img {
+    filter: drop-shadow(0px 15px 30px rgba(0, 150, 255, 0.9)); /* L'ombre bleue devient géante ! */
 }
