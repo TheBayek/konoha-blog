@@ -1,0 +1,54 @@
+[33mc641c6b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{0}: reset: moving to HEAD~1
+[33m5328587[m HEAD@{1}: reset: moving to HEAD~1
+[33m5c86e10[m HEAD@{2}: reset: moving to HEAD~1
+[33me29a6a7[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{3}: reset: moving to HEAD~3
+[33mae4ffd5[m HEAD@{4}: commit: all
+[33m3bdcec8[m HEAD@{5}: reset: moving to HEAD~3
+[33m8b8fea0[m HEAD@{6}: reset: moving to HEAD~3
+[33m1291721[m HEAD@{7}: reset: moving to HEAD~1
+[33mea6424c[m HEAD@{8}: reset: moving to HEAD~1
+[33mc0afa9c[m HEAD@{9}: reset: moving to HEAD~1
+[33m84e7383[m HEAD@{10}: commit: #aaa
+[33mc0afa9c[m HEAD@{11}: commit: #commit
+[33mea6424c[m HEAD@{12}: commit: #commit
+[33m1291721[m HEAD@{13}: commit: #commit
+[33m947600d[m HEAD@{14}: commit: #js
+[33me295b64[m HEAD@{15}: commit: #commit
+[33m8b8fea0[m HEAD@{16}: commit: feat: inscription fonctionnelle et liaison MongoDB
+[33mba0b562[m HEAD@{17}: commit: feat: connexion MongoDB réussie et sécurisée
+[33m51a0344[m HEAD@{18}: pull --tags origin main: Fast-forward
+[33m4564f80[m HEAD@{19}: commit: #message
+[33mbb0554b[m HEAD@{20}: commit: #responsive
+[33m098caf2[m HEAD@{21}: commit: #change
+[33m25741a0[m HEAD@{22}: commit: #changes index
+[33m315b306[m HEAD@{23}: commit: #changes index
+[33m101584e[m HEAD@{24}: commit: #akatsuki
+[33mc829086[m HEAD@{25}: commit: #commit change in head
+[33mb2338c4[m HEAD@{26}: clone: from https://github.com/thebayek/konoha-blog.git
+[33mc641c6b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{0}: reset: moving to HEAD~1
+[33m5328587[m HEAD@{1}: reset: moving to HEAD~1
+[33m5c86e10[m HEAD@{2}: reset: moving to HEAD~1
+[33me29a6a7[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{3}: reset: moving to HEAD~3
+[33mae4ffd5[m HEAD@{4}: commit: all
+[33m3bdcec8[m HEAD@{5}: reset: moving to HEAD~3
+[33m8b8fea0[m HEAD@{6}: reset: moving to HEAD~3
+[33m1291721[m HEAD@{7}: reset: moving to HEAD~1
+[33mea6424c[m HEAD@{8}: reset: moving to HEAD~1
+[33mc0afa9c[m HEAD@{9}: reset: moving to HEAD~1
+[33m84e7383[m HEAD@{10}: commit: #aaa
+[33mc0afa9c[m HEAD@{11}: commit: #commit
+[33mea6424c[m HEAD@{12}: commit: #commit
+[33m1291721[m HEAD@{13}: commit: #commit
+[33m947600d[m HEAD@{14}: commit: #js
+[33me295b64[m HEAD@{15}: commit: #commit
+[33m8b8fea0[m HEAD@{16}: commit: feat: inscription fonctionnelle et liaison MongoDB
+[33mba0b562[m HEAD@{17}: commit: feat: connexion MongoDB réussie et sécurisée
+[33m51a0344[m HEAD@{18}: pull --tags origin main: Fast-forward
+[33m4564f80[m HEAD@{19}: commit: #message
+[33mbb0554b[m HEAD@{20}: commit: #responsive
+[33m098caf2[m HEAD@{21}: commit: #change
+[33m25741a0[m HEAD@{22}: commit: #changes index
+[33m315b306[m HEAD@{23}: commit: #changes index
+[33m101584e[m HEAD@{24}: commit: #akatsuki
+[33mc829086[m HEAD@{25}: commit: #commit change in head
+[33mb2338c4[m HEAD@{26}: clone: from https://github.com/thebayek/konoha-blog.git
