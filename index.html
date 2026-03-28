@@ -1,16 +1,6 @@
 <!doctype html>
 <html lang="fr">
   <head>
-
-      <script>
-  // Le videur de la page Mon Compte
-  if (!localStorage.getItem("ninjaPseudo")) {
-    alert("🛑 Accès refusé ! Tu dois te connecter pour entrer ici.");
-    window.location.href = "enregistrement.html"; // On le renvoie à l'accueil
-  }
-      </script>
-    
-    <!-- Google tag (gtag.js) -->
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=AW-18015844919"
@@ -37,27 +27,27 @@
     <script>
       function toggleMusique() {
         let audio = document.getElementById("naruto-epic-music");
-        let bouton = document.getElementById("btn-musique"); // On attrape le bouton
+        let bouton = document.getElementById("btn-musique");
 
         if (audio.paused) {
           audio.play();
-          bouton.textContent = "ARRÊTER LA MUSIQUE"; // Le texte change !
+          bouton.textContent = "ARRÊTER LA MUSIQUE";
         } else {
           audio.pause();
-          bouton.textContent = "LANCER LA MUSIQUE"; // Le texte revient à la normale
+          bouton.textContent = "LANCER LA MUSIQUE";
         }
       }
 
       function toggleGenjutsu() {
         let audio = document.getElementById("audio-boo");
-        let bouton = document.getElementById("btn-genjutsu"); // On attrape le bouton
+        let bouton = document.getElementById("btn-genjutsu");
 
         if (audio.paused) {
           audio.play();
-          bouton.textContent = "ARRÊTER LE GENJUTSU"; // Le texte change !
+          bouton.textContent = "ARRÊTER LE GENJUTSU";
         } else {
           audio.pause();
-          bouton.textContent = "LANCER LE GENJUTSU"; // Le texte revient à la normale
+          bouton.textContent = "LANCER LE GENJUTSU";
         }
       }
 
@@ -123,6 +113,7 @@
         </li>
       </ul>
     </div>
+
     <script>
       // On regarde si on trouve un pseudo dans la mémoire locale
       let ninjaConnecte = localStorage.getItem("ninjaPseudo");
@@ -130,12 +121,10 @@
       if (ninjaConnecte) {
         // S'il est connecté, on cache "Compte" (inscription/connexion)
         document.getElementById("nav-login").style.display = "none";
-        
+
         // Et on affiche "Mon Compte"
         document.getElementById("nav-profil").style.display = "inline-block";
       }
     </script>
-  </body>
-</html>
   </body>
 </html>
