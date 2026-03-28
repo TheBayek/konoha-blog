@@ -30,50 +30,49 @@
     </div>
 
     <script>
-        function creerLeCompte() {
-            // Force le pseudo en minuscules pour éviter les bugs
-            let pseudo = document.getElementById("new-pseudo").value.trim().toLowerCase();
-            let fileInput = document.getElementById("avatar-upload");
+       async function creerLeCompte() {
+    let pseudo = document.getElementById("new-pseudo").value.trim();
+    let password = document.getElementById("new-pass").value;
+    let fileInput = document.getElementById("avatar-upload");
 
-            if (pseudo === "") {
-                alert("❌ Tu dois choisir un pseudo !");
-                return;
-            }
+    if (!pseudo || !password) {
+        alert("❌ Remplis tous les champs, ninja !");
+        return;
+    }
 
-            // On sauvegarde le pseudo
-            localStorage.setItem("ninjaPseudo", pseudo);
+    let avatarBase64 = "telechargement.jpg"; // Image par défaut
 
-            if (fileInput.files.length > 0) {
-                let fichier = fileInput.files[0];
-                
-                // Sécurité contre les images trop lourdes (Max 2.5 Mo)
-                if (fichier.size > 2500000) {
-                    alert("⚠️ Ton image est trop lourde (Max 2.5 Mo) ! On t'a mis l'avatar de base de Konoha.");
-                    localStorage.setItem("ninjaAvatar", "telechargement.jpg");
-                    window.location.href = "mon-compte.html";
-                    return;
-                }
+    // On transforme l'image en texte si elle existe
+    if (fileInput.files.length > 0) {
+        const reader = new FileReader();
+        reader.readAsDataURL(fileInput.files[0]);
+        reader.onload = async () => {
+            await envoyerInscription(pseudo, password, reader.result);
+        };
+    } else {
+        await envoyerInscription(pseudo, password, avatarBase64);
+    }
+}
 
-                let reader = new FileReader();
-                reader.onload = function(event) {
-                    try {
-                        localStorage.setItem("ninjaAvatar", event.target.result);
-                        alert("✅ Compte créé avec succès ! Ouverture des portes...");
-                        window.location.href = "mon-compte.html";
-                    } catch(e) {
-                        alert("⚠️ Image trop compliquée. Avatar par défaut appliqué.");
-                        localStorage.setItem("ninjaAvatar", "telechargement.jpg");
-                        window.location.href = "mon-compte.html";
-                    }
-                };
-                reader.readAsDataURL(fichier);
-            } else {
-                // S'il ne met pas d'image
-                localStorage.setItem("ninjaAvatar", "telechargement.jpg");
-                alert("✅ Compte créé ! (Avatar de Konoha par défaut)");
-                window.location.href = "mon-compte.html";
-            }
+async function envoyerInscription(pseudo, password, avatar) {
+    try {
+        const response = await fetch('http://localhost:3000/api/inscription', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ pseudo, password, avatar })
+        });
+        const data = await response.json();
+        if (response.ok) {
+            alert("✅ Compte créé !");
+            localStorage.setItem("ninjaPseudo", pseudo.toLowerCase());
+            window.location.href = "mon-compte.html";
+        } else {
+            alert("🛑 " + data.erreur);
         }
+    } catch (err) {
+        alert("❌ Serveur éteint !");
+    }
+}
     </script>
 </body>
 </html>

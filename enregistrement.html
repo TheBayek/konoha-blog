@@ -136,22 +136,31 @@
     </div>
 
     <script>
-        function connexionNinja() {
-            let pseudoTape = document.getElementById("login-pseudo").value.trim();
-            let pseudoSauvegarde = localStorage.getItem("ninjaPseudo");
+        async function connexionNinja() {
+    let pseudo = document.getElementById("login-pseudo").value.trim();
+    let password = document.getElementById("login-pass").value;
 
-            if (pseudoTape === "") {
-                alert("❌ Tu dois entrer ton pseudo !");
-                return;
-            }
+    try {
+        const response = await fetch('http://localhost:3000/api/connexion', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ pseudo, password })
+        });
+        const data = await response.json();
 
-            if (pseudoTape === pseudoSauvegarde) {
-                alert("✅ Bon retour au village, " + pseudoTape + " !");
-                window.location.href = "mon-compte.html"; 
-            } else {
-                alert("🛑 Compte introuvable ! Vérifie ton pseudo ou crée un compte.");
-            }
+        if (response.ok) {
+            alert("✅ Bienvenue, " + data.ninja.pseudo + " !");
+            // On sauvegarde en local pour que la page "mon-profil" affiche les bonnes infos
+            localStorage.setItem("ninjaPseudo", data.ninja.pseudo);
+            localStorage.setItem("ninjaAvatar", data.ninja.avatar);
+            window.location.href = "mon-compte.html";
+        } else {
+            alert("🛑 " + data.erreur);
         }
+    } catch (err) {
+        alert("❌ Impossible de joindre le serveur !");
+    }
+}
     </script>
 </body>
 </html>
