@@ -37,7 +37,8 @@
 
         async function chargerProfilNinja(pseudo) {
             try {
-                const response = await fetch(`https://api.konohablog.fr`);
+                // On ajoute le chemin exact et le pseudo du ninja
+                const response = await fetch(`https://api.konohablog.fr/api/profil/${pseudo}`);
                 const data = await response.json();
 
                 if (response.ok) {
