@@ -23,27 +23,38 @@
         <button onclick="deconnexion()" class="btn-deconnexion">SE DÉCONNECTER</button>
     </div>
     <script>
-        // 1. On va chercher les infos dans la mémoire du navigateur
-        let pseudoSauvegarde = localStorage.getItem("ninjaPseudo");
-        let avatarSauvegarde = localStorage.getItem("ninjaAvatar");
+        // 1. On vérifie qui est connecté (le badge d'accès)
+        let pseudoLocal = localStorage.getItem("ninjaPseudo");
 
         // 2. Si le mec n'a pas de compte, on le renvoie à la porte d'entrée !
-        if (!pseudoSauvegarde) {
+        if (!pseudoLocal) {
             alert("🛑 Halte-là ! Tu dois d'abord t'enregistrer.");
             window.location.href = "enregistrement.html";
         } else {
-            // 3. S'il a un compte, on affiche ses infos
-            document.getElementById("affichage-pseudo").textContent = pseudoSauvegarde;
-            
-            // S'il n'a pas mis d'image à la création, on lui met le logo par défaut
-            if (avatarSauvegarde) {
-                document.getElementById("affichage-avatar").src = avatarSauvegarde;
-            } else {
-                document.getElementById("affichage-avatar").src = "telechargement.jpg";
+            // 3. LE JUTSU : On interroge le vrai serveur pour avoir les vraies infos !
+            chargerProfilNinja(pseudoLocal);
+        }
+
+        async function chargerProfilNinja(pseudo) {
+            try {
+                const response = await fetch(`http://localhost:3000/api/profil/${pseudo}`);
+                const data = await response.json();
+
+                if (response.ok) {
+                    // On affiche les infos qui viennent de MongoDB
+                    document.getElementById("affichage-pseudo").textContent = data.pseudo;
+                    document.getElementById("affichage-avatar").src = data.avatar || "telechargement.jpg";
+                } else {
+                    document.getElementById("affichage-pseudo").textContent = "Ninja introuvable";
+                }
+            } catch (err) {
+                console.log("Serveur backend éteint. Mode survie activé.");
+                // Si ton serveur Node est coupé, on affiche au moins le pseudo local
+                document.getElementById("affichage-pseudo").textContent = pseudo;
             }
         }
 
-        // 4. La fonction pour se déconnecter
+        // 4. La fonction pour se déconnecter (inchangée, elle était parfaite)
         function deconnexion() {
             localStorage.removeItem("ninjaPseudo");
             localStorage.removeItem("ninjaAvatar");
