@@ -37,7 +37,7 @@
 
         async function chargerProfilNinja(pseudo) {
             try {
-                const response = await fetch(`http://localhost:3000/api/profil/${pseudo}`);
+                const response = await fetch(`https://api.konohablog.fr`);
                 const data = await response.json();
 
                 if (response.ok) {
