@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="fr">
   <head>
+
+      <script>
+  // Le videur de la page Mon Compte
+  if (!localStorage.getItem("ninjaPseudo")) {
+    alert("🛑 Accès refusé ! Tu dois te connecter pour entrer ici.");
+    window.location.href = "enregistrement.html"; // On le renvoie à l'accueil
+  }
+      </script>
+    
     <!-- Google tag (gtag.js) -->
     <script
       async
@@ -63,13 +72,17 @@
     </script>
   </head>
   <body>
-
-        
     <nav class="navbar">
       <a href="index.html" class="nav-link active">Accueil</a>
-      <a href="enregistrement.html" class="nav-link">Compte</a>
+      <a href="enregistrement.html" class="nav-link" id="nav-login">Compte</a>
+      <a
+        href="mon-compte.html"
+        class="nav-link"
+        id="nav-profil"
+        style="display: none"
+        >Mon Compte</a
+      >
     </nav>
-
 
     <div class="header-buttons">
       <button id="btn-genjutsu" onclick="toggleGenjutsu()">
@@ -110,5 +123,19 @@
         </li>
       </ul>
     </div>
+    <script>
+      // On regarde si on trouve un pseudo dans la mémoire locale
+      let ninjaConnecte = localStorage.getItem("ninjaPseudo");
+
+      if (ninjaConnecte) {
+        // S'il est connecté, on cache "Compte" (inscription/connexion)
+        document.getElementById("nav-login").style.display = "none";
+        
+        // Et on affiche "Mon Compte"
+        document.getElementById("nav-profil").style.display = "inline-block";
+      }
+    </script>
+  </body>
+</html>
   </body>
 </html>
