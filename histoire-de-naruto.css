@@ -103,6 +103,61 @@ div{text-align: center;}
 
 
 
+/* ==========================================================
+   🌀 JUTSU DU FLEXBOX (TEXTE À GAUCHE, IMAGES À DROITE)
+   ========================================================== */
+
+.conteneur-histoire {
+    display: flex;
+    align-items: center; /* Aligne tout bien au centre verticalement */
+    justify-content: space-between;
+    max-width: 1200px; /* On donne de la place au conteneur */
+    margin: 40px auto;
+    gap: 50px; /* L'espace entre le texte et les images */
+    padding: 0 20px;
+}
+
+.texte-histoire {
+    flex: 1; /* Le texte prend toute la place disponible à gauche */
+    text-align: justify; /* Fait des lignes bien droites comme dans un livre */
+}
+
+.texte-histoire p {
+    margin: 0; 
+    max-width: 100%; /* Annule l'ancienne limite de largeur pour ce texte précis */
+}
+
+.texte-histoire h3 {
+    text-align: left;
+    font-size: 2.5rem;
+    color: #ff9900;
+    margin-bottom: 20px;
+}
+
+.images-naruto {
+    display: flex;
+    flex-direction: column; /* Superpose les deux images à droite */
+    gap: 20px;
+    width: 400px; /* Définit la taille de la colonne de droite */
+}
+
+/* =========================================
+   📱 RESPONSIVE DU FLEXBOX (MOBILE)
+   ========================================= */
+@media (max-width: 768px) {
+    .conteneur-histoire {
+        flex-direction: column; /* Sur mobile, on rempile de haut en bas ! */
+        gap: 20px;
+    }
+
+    .images-naruto {
+        width: 100%; /* Les images reprennent toute la largeur */
+    }
+
+    .texte-histoire h3 {
+        text-align: center; /* On recentre le titre sur mobile */
+    }
+}
 
 
 
