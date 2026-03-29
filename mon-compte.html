@@ -1,67 +1,74 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mon Profil Ninja</title>
-    <link rel="stylesheet" href="style.css"> 
-    <link rel="stylesheet" href="mon-compte.css"> 
-</head>
-<body>
-
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mon-compte.css" />
+    <link rel="icon" type="image/jpeg" href="telechargement.jpg" />
+  </head>
+  <body>
     <nav class="navbar">
-        <a href="index.html" class="nav-link">Accueil</a>
-        <a href="mon-compte.html" class="nav-link active">Mon Profil</a>
+      <a href="index.html" class="nav-link">Accueil</a>
+      <a href="mon-compte.html" class="nav-link active">Mon Profil</a>
     </nav>
     <div class="profil-carte">
-        <img id="affichage-avatar" src="" alt="Mon Avatar" class="avatar-img">
-        
-        <h2 id="affichage-pseudo">Nom Inconnu</h2>
-        
-        <p class="rang-ninja">Rang : <strong>Genin 🍃</strong></p>
-        
-        <button onclick="deconnexion()" class="btn-deconnexion">SE DÉCONNECTER</button>
+      <img id="affichage-avatar" src="" alt="Mon Avatar" class="avatar-img" />
+
+      <h2 id="affichage-pseudo">Nom Inconnu</h2>
+
+      <p class="rang-ninja">Rang : <strong>Genin 🍃</strong></p>
+
+      <button onclick="deconnexion()" class="btn-deconnexion">
+        SE DÉCONNECTER
+      </button>
     </div>
     <script>
-        // 1. On vérifie qui est connecté (le badge d'accès)
-        let pseudoLocal = localStorage.getItem("ninjaPseudo");
+      // 1. On vérifie qui est connecté (le badge d'accès)
+      let pseudoLocal = localStorage.getItem("ninjaPseudo");
 
-        // 2. Si le mec n'a pas de compte, on le renvoie à la porte d'entrée !
-        if (!pseudoLocal) {
-            alert("🛑 Halte-là ! Tu dois d'abord t'enregistrer.");
-            window.location.href = "enregistrement.html";
-        } else {
-            // 3. LE JUTSU : On interroge le vrai serveur pour avoir les vraies infos !
-            chargerProfilNinja(pseudoLocal);
+      // 2. Si le mec n'a pas de compte, on le renvoie à la porte d'entrée !
+      if (!pseudoLocal) {
+        alert("🛑 Halte-là ! Tu dois d'abord t'enregistrer.");
+        window.location.href = "enregistrement.html";
+      } else {
+        // 3. LE JUTSU : On interroge le vrai serveur pour avoir les vraies infos !
+        chargerProfilNinja(pseudoLocal);
+      }
+
+      async function chargerProfilNinja(pseudo) {
+        try {
+          // On ajoute le chemin exact et le pseudo du ninja
+          const response = await fetch(
+            `https://api.konohablog.fr/api/profil/${pseudo}`,
+          );
+          const data = await response.json();
+
+          if (response.ok) {
+            // On affiche les infos qui viennent de MongoDB
+            document.getElementById("affichage-pseudo").textContent =
+              data.pseudo;
+            document.getElementById("affichage-avatar").src =
+              data.avatar || "telechargement.jpg";
+          } else {
+            document.getElementById("affichage-pseudo").textContent =
+              "Ninja introuvable";
+          }
+        } catch (err) {
+          console.log("Serveur backend éteint. Mode survie activé.");
+          // Si ton serveur Node est coupé, on affiche au moins le pseudo local
+          document.getElementById("affichage-pseudo").textContent = pseudo;
         }
+      }
 
-        async function chargerProfilNinja(pseudo) {
-            try {
-                // On ajoute le chemin exact et le pseudo du ninja
-                const response = await fetch(`https://api.konohablog.fr/api/profil/${pseudo}`);
-                const data = await response.json();
-
-                if (response.ok) {
-                    // On affiche les infos qui viennent de MongoDB
-                    document.getElementById("affichage-pseudo").textContent = data.pseudo;
-                    document.getElementById("affichage-avatar").src = data.avatar || "telechargement.jpg";
-                } else {
-                    document.getElementById("affichage-pseudo").textContent = "Ninja introuvable";
-                }
-            } catch (err) {
-                console.log("Serveur backend éteint. Mode survie activé.");
-                // Si ton serveur Node est coupé, on affiche au moins le pseudo local
-                document.getElementById("affichage-pseudo").textContent = pseudo;
-            }
-        }
-
-        // 4. La fonction pour se déconnecter (inchangée, elle était parfaite)
-        function deconnexion() {
-            localStorage.removeItem("ninjaPseudo");
-            localStorage.removeItem("ninjaAvatar");
-            alert("💨 Déconnexion réussie ! (Technique de permutation)");
-            window.location.href = "index.html";
-        }
+      // 4. La fonction pour se déconnecter (inchangée, elle était parfaite)
+      function deconnexion() {
+        localStorage.removeItem("ninjaPseudo");
+        localStorage.removeItem("ninjaAvatar");
+        alert("💨 Déconnexion réussie ! (Technique de permutation)");
+        window.location.href = "index.html";
+      }
     </script>
-</body>
+  </body>
 </html>
