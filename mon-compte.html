@@ -15,6 +15,12 @@
     </nav>
     <div class="profil-carte">
       <img id="affichage-avatar" src="" alt="Mon Avatar" class="avatar-img" />
+      <div style="margin-bottom: 20px;">
+        <label for="input-avatar" style="cursor: pointer; background-color: #ff9900; color: black; padding: 8px 15px; border-radius: 5px; font-family: 'Bangers', cursive; font-size: 1.1rem; transition: 0.3s;">
+            📷 CHANGER D'AVATAR
+        </label>
+        <input type="file" id="input-avatar" accept="image/*" style="display: none;" onchange="changerAvatar(event)">
+      </div>
 
       <h2 id="affichage-pseudo">Nom Inconnu</h2>
 
