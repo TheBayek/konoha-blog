@@ -51,6 +51,18 @@
 
       <p class="rang-ninja">Rang : <strong>Genin 🍃</strong></p>
 
+      <div style="margin-top: 20px; border-top: 2px solid #333; padding-top: 20px; width: 100%;">
+        <h3 style="color: #ff9900; font-family: 'Bangers', cursive; font-size: 1.5rem; margin-bottom: 15px;">⚙️ Paramètres secrets</h3>
+        
+        <input type="text" id="modif-pseudo" placeholder="Nouveau pseudo..." style="width: 90%; padding: 10px; margin-bottom: 10px; border-radius: 5px; background: #222; color: white; border: 1px solid #555; font-family: 'Bangers', cursive; font-size: 1.1rem; box-sizing: border-box;">
+        
+        <input type="password" id="modif-password" placeholder="Nouveau mot de passe..." style="width: 90%; padding: 10px; margin-bottom: 15px; border-radius: 5px; background: #222; color: white; border: 1px solid #555; font-family: 'Bangers', cursive; font-size: 1.1rem; box-sizing: border-box;">
+        
+        <button onclick="changerIdentifiants()" style="background-color: #ff9900; color: black; padding: 10px; border-radius: 5px; font-family: 'Bangers', cursive; font-size: 1.2rem; cursor: pointer; border: none; transition: 0.3s; width: 90%; margin-bottom: 10px;">
+          SAUVEGARDER
+        </button>
+      </div>
+
       <button onclick="deconnexion()" class="btn-deconnexion">
         SE DÉCONNECTER
       </button>
@@ -143,6 +155,42 @@
           };
 
           reader.readAsDataURL(fichier); // Déclenche la lecture du fichier
+        }
+      }
+
+      async function changerIdentifiants() {
+        let ancienPseudo = localStorage.getItem("ninjaPseudo");
+        let nouveauPseudo = document.getElementById("modif-pseudo").value.trim();
+        let nouveauPassword = document.getElementById("modif-password").value;
+
+        // Si le mec clique sans rien remplir
+        if (!nouveauPseudo && !nouveauPassword) {
+          alert("⚠️ Remplis au moins un champ pour modifier quelque chose !");
+          return;
+        }
+
+        try {
+          const response = await fetch('https://api.konohablog.fr/api/profil/identifiants', {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ancienPseudo, nouveauPseudo, nouveauPassword })
+          });
+
+          const data = await response.json();
+
+          if (response.ok) {
+            alert("✅ " + data.message);
+            
+            // LE JUTSU EST LÀ : On met à jour la poche avec le nouveau pseudo !
+            localStorage.setItem("ninjaPseudo", data.ninja.pseudo);
+            
+            // On rafraîchit la page pour tout remettre à zéro proprement
+            window.location.reload();
+          } else {
+            alert("🛑 " + data.erreur);
+          }
+        } catch (err) {
+          alert("❌ Impossible de joindre le serveur !");
         }
       }
     </script>
