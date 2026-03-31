@@ -123,19 +123,19 @@ button:hover, .btn-bibliotheque:hover, .btn-naruto:hover {
 }
 
 /* L'animation : quand on passe la souris, le trait prend 100% de la largeur */
-.nav-link:hover::after {
+a.nav-link:hover::after {
     width: 100%;
 }
 
-/* 🟠 STYLE DE LA PAGE ACTUELLE (La classe .active) */
-.nav-link.active {
-    color: #ff9900; /* Le fameux orange Naruto ! */
+/* 🟠 STYLE DE LA PAGE ACTUELLE (Force absolue du orange) */
+a.nav-link.active {
+    color: #ff9900 !important; 
 }
 
 /* Le trait orange reste tout le temps affiché pour la page actuelle */
-.nav-link.active::after {
-    width: 100%;
-    background-color: #ff9900;
+a.nav-link.active::after {
+    width: 100% !important;
+    background-color: #ff9900 !important;
 }
 
 /* =========================================
