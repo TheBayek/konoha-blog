@@ -45,11 +45,12 @@
 
         try {
           // ⚠️ Cette route n'existe pas encore sur le serveur, on la fera à l'étape 3 !
-          const response = await fetch("https://api.konohablog.fr/api/mot-de-passe-oublie", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email })
-          });
+          // On pointe vers TON pc (localhost) le temps du test !
+const response = await fetch("https://api.konohablog.fr/api/mot-de-passe-oublie", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email })
+});
 
           const data = await response.json();
 
