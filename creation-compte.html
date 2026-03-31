@@ -24,6 +24,26 @@
         class="input-konoha"
         placeholder="Choisis ton Pseudo..."
       />
+
+<input
+        type="text"
+        id="new-pseudo"
+        class="input-konoha"
+        placeholder="Choisis ton Pseudo..."
+      />
+      <input
+        type="email"
+        id="new-email"
+        class="input-konoha"
+        placeholder="Ton adresse email secrète..."
+      />
+      <input
+        type="password"
+        id="new-pass"
+        class="input-konoha"
+        placeholder="Mot de passe secret..."
+      />
+
       <input
         type="password"
         id="new-pass"
@@ -61,42 +81,42 @@
     <script>
       async function creerLeCompte() {
         let pseudo = document.getElementById("new-pseudo").value.trim();
+        let email = document.getElementById("new-email").value.trim(); // ⬅️ On capte l'email
         let password = document.getElementById("new-pass").value;
         let fileInput = document.getElementById("avatar-upload");
 
-        if (!pseudo || !password) {
-          alert("❌ Remplis tous les champs, ninja !");
+        // ⬅️ On vérifie que les 3 champs sont remplis
+        if (!pseudo || !email || !password) {
+          alert("❌ Remplis tous les champs (pseudo, email, mot de passe) !");
           return;
         }
 
-        let avatarBase64 = "telechargement.jpg"; // Image par défaut
+        let avatarBase64 = "telechargement.jpg"; 
 
-        // On transforme l'image en texte si elle existe
         if (fileInput.files.length > 0) {
           const reader = new FileReader();
           reader.readAsDataURL(fileInput.files[0]);
           reader.onload = async () => {
-            await envoyerInscription(pseudo, password, reader.result);
+            await envoyerInscription(pseudo, email, password, reader.result);
           };
         } else {
-          await envoyerInscription(pseudo, password, avatarBase64);
+          await envoyerInscription(pseudo, email, password, avatarBase64);
         }
       }
 
-      async function envoyerInscription(pseudo, password, avatar) {
+      // ⬅️ On ajoute l'email dans les paramètres de la fonction
+      async function envoyerInscription(pseudo, email, password, avatar) {
         try {
-          // On précise qu'on veut aller au bureau d'inscription
-          const response = await fetch(
-            "https://api.konohablog.fr/api/inscription",
-            {
+          const response = await fetch("https://api.konohablog.fr/api/inscription", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ pseudo, password, avatar }),
-            },
+              // ⬅️ On ajoute l'email dans le colis envoyé au serveur
+              body: JSON.stringify({ pseudo, email, password, avatar }),
+            }
           );
           const data = await response.json();
           if (response.ok) {
-            alert("✅ Compte créé !");
+            alert("✅ Compte créé avec succès !");
             localStorage.setItem("ninjaPseudo", pseudo.toLowerCase());
             window.location.href = "mon-compte.html";
           } else {
