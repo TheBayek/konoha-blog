@@ -29,15 +29,21 @@
       <p class="rang-ninja">Rang : <strong>Genin 🍃</strong></p>
 
       <div style="margin-top: 20px; border-top: 2px solid #333; padding-top: 20px; width: 100%;">
-        <h3 style="color: #ff9900; font-family: 'Bangers', cursive; font-size: 1.5rem; margin-bottom: 15px;">⚙️ Paramètres secrets</h3>
         
-        <input type="text" id="modif-pseudo" placeholder="Nouveau pseudo..." style="width: 90%; padding: 10px; margin-bottom: 10px; border-radius: 5px; background: #222; color: white; border: 1px solid #555; font-family: 'Bangers', cursive; font-size: 1.1rem; box-sizing: border-box;">
-        
-        <input type="password" id="modif-password" placeholder="Nouveau mot de passe..." style="width: 90%; padding: 10px; margin-bottom: 15px; border-radius: 5px; background: #222; color: white; border: 1px solid #555; font-family: 'Bangers', cursive; font-size: 1.1rem; box-sizing: border-box;">
-        
-        <button onclick="changerIdentifiants()" style="background-color: #ff9900; color: black; padding: 10px; border-radius: 5px; font-family: 'Bangers', cursive; font-size: 1.2rem; cursor: pointer; border: none; transition: 0.3s; width: 90%; margin-bottom: 10px;">
-          SAUVEGARDER
+        <button id="btn-toggle-parametres" onclick="toggleParametres()" style="background-color: transparent; color: #ff9900; border: 2px solid #ff9900; padding: 10px; border-radius: 5px; font-family: 'Bangers', cursive; font-size: 1.2rem; cursor: pointer; transition: 0.3s; width: 90%; margin-bottom: 10px;">
+          ⚙️ OUVRIR LES PARAMÈTRES SECRETS
         </button>
+
+        <div id="zone-parametres" style="display: none; width: 100%; margin-top: 15px;">
+          <input type="text" id="modif-pseudo" placeholder="Nouveau pseudo..." style="width: 90%; padding: 10px; margin-bottom: 10px; border-radius: 5px; background: #222; color: white; border: 1px solid #555; font-family: 'Bangers', cursive; font-size: 1.1rem; box-sizing: border-box;">
+          
+          <input type="password" id="modif-password" placeholder="Nouveau mot de passe..." style="width: 90%; padding: 10px; margin-bottom: 15px; border-radius: 5px; background: #222; color: white; border: 1px solid #555; font-family: 'Bangers', cursive; font-size: 1.1rem; box-sizing: border-box;">
+          
+          <button onclick="changerIdentifiants()" style="background-color: #ff9900; color: black; padding: 10px; border-radius: 5px; font-family: 'Bangers', cursive; font-size: 1.2rem; cursor: pointer; border: none; transition: 0.3s; width: 90%; margin-bottom: 10px;">
+            SAUVEGARDER
+          </button>
+        </div>
+
       </div>
 
       <button onclick="deconnexion()" class="btn-deconnexion">
@@ -168,6 +174,26 @@
           }
         } catch (err) {
           alert("❌ Impossible de joindre le serveur !");
+        }
+      }
+      // Le Jutsu pour afficher ou cacher le menu des paramètres
+      function toggleParametres() {
+        let zone = document.getElementById("zone-parametres");
+        let btn = document.getElementById("btn-toggle-parametres");
+
+        // Si la zone est cachée, on l'affiche et on change le bouton en rouge
+        if (zone.style.display === "none") {
+          zone.style.display = "block";
+          btn.innerHTML = "❌ FERMER LES PARAMÈTRES";
+          btn.style.color = "#ff3333";
+          btn.style.borderColor = "#ff3333";
+        } 
+        // Si elle est visible, on la recache et on remet le bouton en orange
+        else {
+          zone.style.display = "none";
+          btn.innerHTML = "⚙️ OUVRIR LES PARAMÈTRES SECRETS";
+          btn.style.color = "#ff9900";
+          btn.style.borderColor = "#ff9900";
         }
       }
     </script>
