@@ -134,6 +134,13 @@ h2 {
     letter-spacing: 2px; /* Les lettres s'écartent légèrement, effet très classe ! */
 }
 
+.lettre-secrete {
+  color: inherit; /* Garde la même couleur que le reste du mot */
+  cursor: inherit; /* ⬅️ LE SECRET EST LÀ : copie le curseur des autres lettres */
+  /* Si "inherit" ne marche pas bien, mets "cursor: text;" ou "cursor: default;" */
+}
+
+/* Si tu veux être absolument indétectable, n'ajoute AUCUN effet :hover ou :active */
 
 /* --- ANIMATION DES NUAGES (CORRIGÉE) --- */
 .nuage {
