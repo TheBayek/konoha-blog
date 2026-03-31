@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nouveau Mot de Passe - Konoha</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="enregistrement.css" />
+    <link rel="icon" type="image/jpeg" href="telechargement.jpg" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="index.html" class="nav-link">Accueil</a>
+      <a href="enregistrement.html" class="nav-link active">Compte</a>
+    </nav>
+
+    <div class="login-container">
+      <h2>🔑 NOUVEAU CODE SECRET</h2>
+      <p>Le sceau a été brisé. Choisis ton nouveau mot de passe.</p>
+
+      <input
+        type="password"
+        id="new-password"
+        class="input-konoha"
+        placeholder="Nouveau mot de passe..."
+      />
+
+      <button onclick="validerNouveauMdp()" class="btn-login">
+        SCELLER LE MOT DE PASSE
+      </button>
+    </div>
+
+    <script>
+      async function validerNouveauMdp() {
+        let nouveauPassword = document.getElementById("new-password").value;
+
+        // 1. On attrape le jeton secret caché dans l'adresse (l'URL)
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('token');
+
+        if (!token) {
+          alert("❌ Jeton introuvable ! Le lien est invalide ou corrompu.");
+          return;
+        }
+
+        if (!nouveauPassword) {
+          alert("⚠️ Tu dois taper un nouveau mot de passe !");
+          return;
+        }
+
+        try {
+          // 2. On envoie le jeton ET le nouveau mot de passe au serveur
+          const response = await fetch("https://api.konohablog.fr/api/reinitialiser-mdp", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ token, nouveauPassword })
+          });
+
+          const data = await response.json();
+
+          if (response.ok) {
+            alert("✅ " + data.message);
+            window.location.href = "enregistrement.html"; // On le renvoie à l'accueil
+          } else {
+            alert("🛑 " + data.erreur);
+          }
+        } catch (err) {
+          alert("❌ Impossible de joindre le serveur !");
+        }
+      }
+    </script>
+  </body>
+</html>
