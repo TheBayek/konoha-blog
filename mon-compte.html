@@ -26,7 +26,8 @@
 
       <h2 id="affichage-pseudo">Nom Inconnu</h2>
 
-      <p class="rang-ninja">Rang : <strong>Genin 🍃</strong></p>
+      <p>Niveau actuel : <strong id="affichage-grade">...</strong></p>
+<p>Série de connexions : <span id="affichage-streak">0</span>🔥 jours</p>
 
       <div style="margin-top: 20px; border-top: 2px solid #333; padding-top: 20px; width: 100%;">
         
@@ -196,6 +197,9 @@
           btn.style.borderColor = "#ff9900";
         }
       }
+
+      document.getElementById("affichage-grade").innerText = data.ninja.grade;
+document.getElementById("affichage-streak").innerText = data.ninja.streak;
     </script>
   </body>
 </html>
