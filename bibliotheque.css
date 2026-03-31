@@ -446,6 +446,19 @@ h1 { font-family: 'Reggae One', cursive; font-size: 2.5rem; }
 }
 
 
+.lettre-secrete {
+  color: inherit; /* Garde la même couleur que le reste du mot */
+  cursor: inherit; /* ⬅️ LE SECRET EST LÀ : copie le curseur des autres lettres */
+  /* Si "inherit" ne marche pas bien, mets "cursor: text;" ou "cursor: default;" */
+}
+
+/* Si tu veux être absolument indétectable, n'ajoute AUCUN effet :hover ou :active */
+
+/* Petit bonus : un effet au clic pour que le gars comprenne qu'il a touché un truc */
+.lettre-secrete:active {
+  color: white; /* Le O clignote en blanc une fraction de seconde au clic */
+}
+
 /* ==========================================================
    😈 PIÈGE UWU (SUGGESTION MYSTÈRE)
    ========================================================== */
