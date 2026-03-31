@@ -83,6 +83,7 @@
 }
 
 .mot-de-passe-oublie a:hover {
-    color: #ff00ff; /* Devient rose suspect au survol 😈 */
+    color: white; /* Finie la blague du rose, on passe en mode sérieux 🦅 */
     text-decoration: underline;
+    text-shadow: 0 0 10px #ff9900; /* Petit effet brillant en bonus */
 }
