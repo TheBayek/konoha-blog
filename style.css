@@ -162,30 +162,28 @@ button:hover, .btn-bibliotheque:hover, .btn-naruto:hover {
 /* On s'assure que la navbar aligne tout bien au centre verticalement */
 .navbar {
   display: flex;
-  align-items: center; /* Aligne les éléments sur la même ligne */
-  /* Garde tes autres propriétés existantes ici (justify-content, etc.) */
+  align-items: center; 
 }
 
-/* Le style spécifique pour que ARCADE ressorte bien en orange mais garde ton contour */
+/* Le style spécifique pour le bouton Arcade */
 .arcade-link {
-  color: #ff9900 !important; /* Le orange Konoha */
+  /* Fini la couleur forcée ! Il prendra le blanc normal, ou le orange si '.active' est là */
   display: inline-flex;
-  align-items: center; /* Aligne la manette avec le texte */
+  align-items: center; 
+  transition: transform 0.3s ease, color 0.3s ease; /* Le grossissement sera bien fluide */
 }
 
 /* On gère la manette pour pas qu'elle casse l'alignement */
 .icone-manette {
-  font-size: 1.2rem; /* On réduit un peu la taille de l'emoji */
-  margin-right: 8px; /* Espace entre l'emoji et le texte */
-  filter: drop-shadow(0px 0px 5px rgba(255, 153, 0, 0.5)); /* Petit halo lumineux optionnel */
+  font-size: 1.2rem; 
+  margin-right: 8px; 
+  filter: drop-shadow(0px 0px 5px rgba(255, 153, 0, 0.5)); 
 }
 
-/* L'effet au survol */
+/* L'effet au survol : on le fait grossir (et l'effet de la barre en bas marchera toujours) */
 .arcade-link:hover {
   transform: scale(1.1);
-  color: white !important; /* Devient blanc quand on passe la souris */
 }
-
 
 
 
