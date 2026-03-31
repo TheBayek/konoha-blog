@@ -22,6 +22,31 @@
         <input type="file" id="input-avatar" accept="image/*" style="display: none;" onchange="changerAvatar(event)">
       </div>
 
+      <div style="margin-bottom: 20px">
+        <label
+          for="input-avatar"
+          style="
+            cursor: pointer;
+            background-color: #ff9900;
+            color: black;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-family: &quot;Bangers&quot;, cursive;
+            font-size: 1.1rem;
+            transition: 0.3s;
+          "
+        >
+          📷 CHANGER D'AVATAR
+        </label>
+        <input
+          type="file"
+          id="input-avatar"
+          accept="image/*"
+          style="display: none"
+          onchange="changerAvatar(event)"
+        />
+      </div>
+
       <h2 id="affichage-pseudo">Nom Inconnu</h2>
 
       <p class="rang-ninja">Rang : <strong>Genin 🍃</strong></p>
@@ -74,6 +99,51 @@
         localStorage.removeItem("ninjaAvatar");
         alert("💨 Déconnexion réussie ! (Technique de permutation)");
         window.location.href = "index.html";
+      }
+
+      async function changerAvatar(event) {
+        let fichier = event.target.files[0];
+        let pseudo = localStorage.getItem("ninjaPseudo");
+
+        if (fichier && pseudo) {
+          let reader = new FileReader();
+
+          reader.onload = async function (e) {
+            let nouvelleImage = e.target.result; // L'image en Base64
+
+            // 1. On change l'image direct sur la page pour que ça fasse stylé
+            document.getElementById("affichage-avatar").src = nouvelleImage;
+
+            // 2. On l'envoie à MongoDB via notre nouvelle route
+            try {
+              const response = await fetch(
+                "https://api.konohablog.fr/api/profil/avatar",
+                {
+                  method: "PUT",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({
+                    pseudo: pseudo,
+                    avatar: nouvelleImage,
+                  }),
+                },
+              );
+
+              if (response.ok) {
+                // On met à jour la poche du ninja
+                localStorage.setItem("ninjaAvatar", nouvelleImage);
+                alert(
+                  "📸 Nouvel avatar sauvegardé dans les archives de Konoha !",
+                );
+              } else {
+                alert("🛑 Erreur : L'avatar n'a pas pu être sauvegardé.");
+              }
+            } catch (err) {
+              alert("❌ Impossible de joindre le serveur !");
+            }
+          };
+
+          reader.readAsDataURL(fichier); // Déclenche la lecture du fichier
+        }
       }
     </script>
   </body>
