@@ -60,6 +60,22 @@
         }
       }
     </script>
+
+    <script>
+    // Le radar anti-intrus !
+    function allerAuProfil(event) {
+        event.preventDefault(); // Empêche le clic de faire n'importe quoi
+        
+        // Si le gars a ses accès, on l'envoie direct sur son profil
+        if (localStorage.getItem("ninjaPseudo")) {
+            window.location.href = "mon-compte.html";
+        } 
+        // Sinon, direction la page de connexion, SANS FAIRE POP D'ALERTE !
+        else {
+            window.location.href = "enregistrement.html"; 
+        }
+    }
+</script>
   </head>
   <body>
     <nav class="navbar">

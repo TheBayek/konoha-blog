@@ -163,10 +163,6 @@ h2 {
     100% { transform: translateX(120vw); }
 }
 
-@keyframes flotter {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(120vw); }
-}
 
 
 .akatsuki-flex-container {
